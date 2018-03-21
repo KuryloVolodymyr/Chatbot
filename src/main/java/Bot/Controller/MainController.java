@@ -26,9 +26,6 @@ public class MainController {
     public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") final String token,
                                                 @RequestParam("hub.challenge") final String challenge,
                                                 @RequestParam("hub.mode") final String mode) {
-        System.out.println(token.equals(verifyToken));
-        System.out.println(challenge.equals("CHALLENGE_ACCEPTED"));
-        System.out.println(mode.equals("subscribe"));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -40,6 +37,9 @@ public class MainController {
     }
 
 //    public ResponseEntity handleMessage(){
+//
+//    }
+//    public ResponseEntity handlePostbacks(){
 //
 //    }
 //
