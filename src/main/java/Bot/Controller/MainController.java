@@ -26,7 +26,7 @@ public class MainController {
     public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") final String token,
                                                 @RequestParam("hub.challenge") final String challenge,
                                                 @RequestParam("hub.mode") final String mode) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(challenge ,HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
