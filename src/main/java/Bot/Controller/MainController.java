@@ -41,53 +41,68 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> bodyTest(@RequestBody final String info) {
+    public ResponseEntity<Void> conversation(@RequestBody final String info) {
         JSONObject jsonObject = new JSONObject(info);
 
-        String senderPSID = jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
-                .getJSONObject(0).getJSONObject("sender").getString("id");
-        String recepientPSID = jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
-                .getJSONObject(0).getJSONObject("recipient").getString("id");
-        String textOFMessage = jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
-                .getJSONObject(0).getJSONObject("message").getString("text");
+        String senderPSID = jsonObject.getJSONArray("entry").getJSONObject(0)
+                .getJSONArray("messaging").getJSONObject(0)
+                .getJSONObject("sender").getString("id");
 
+//        String recepientPSID = jsonObject.getJSONArray("entry").getJSONObject(0)
+//                .getJSONArray("messaging").getJSONObject(0)
+//                .getJSONObject("recipient").getString("id");
 
-        System.out.println(info);
-        System.out.println(recepientPSID);
-        System.out.println(senderPSID);
-        System.out.println(textOFMessage);
+        if (jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
+                .getJSONObject(0).has("message")) {
 
+            JSONObject messageObj = jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
+                    .getJSONObject(0).getJSONObject("message");
 
-        String responseString = messageBuilder.build(textOFMessage, senderPSID);
-        System.out.println(responseString);
+            if (messageObj.has("text")) {
+                String textOfMessage = messageObj.getString("text");
 
+                handleTextMessage(textOfMessage, senderPSID);
+            } else if (messageObj.has("attachments")) {
+                String imageURL = messageObj.getJSONArray("attachments").getJSONObject(0)
+                        .getJSONObject("payload").getString("url");
+                handleAttachmentMessage(imageURL, senderPSID);
+            }
 
-        JSONObject responceJSON = new JSONObject(responseString);
-        System.out.println(responceJSON);
+        }
+        else{
+            String payloadObj = jsonObject.getJSONArray("entry").getJSONObject(0)
+                    .getJSONArray("messaging").getJSONObject(0).getJSONObject("postback").getString("payload");
+            if(payloadObj.equals("yes"))
+                callSendAPI(messageBuilder.buildResponceForText("I`m glad to help you", senderPSID));
+            else if(payloadObj.equals("no")){
+                callSendAPI(messageBuilder.buildResponceForText("but you`ve send it", senderPSID));
+            }
 
-//        try {
-//            callSendAPI(responseString);
-//        } catch (HttpClientErrorException e) {
-//            System.out.println("Http exception");
-//        }
+            System.out.println(payloadObj);
+        }
+
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //    public ResponseEntity handleMessage(String senderPSID, ){
-//
-//    }
+    private void handleTextMessage(String text, String senderPSID) {
+        callSendAPI(messageBuilder.buildResponceForText(text, senderPSID));
+    }
+
+    private void handleAttachmentMessage(String attachmentURL, String senderPSID) {
+        callSendAPI(messageBuilder.buildResponceForAttachment(attachmentURL, senderPSID));
+    }
 //    public ResponseEntity handlePostbacks(){
 //
 //    }
-//
-    public void callSendAPI(String message) {
+
+    private void callSendAPI(String message) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> entity = new HttpEntity<String>(message, headers);
+        HttpEntity<Object> entity = new HttpEntity<Object>(message, headers);
         System.out.println(entity);
-        restTemplate.postForEntity("https://graph.facebook.com/v2.6/me/messages?access_token={}",
-                entity, String.class, pageAccessToken);
+        restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token=EAAcUEIGl26QBAEtCLShv7xYRLgtid2XWXZCcUkZBn7RCOFTiUgEoQgq2Kxn7jApCEwxc4W7r1PMiBkf6kdfdIVytxBUoqellqk9B3OqZB0qNO9uSxHa3hybwLxMH9ZBCSs1IoD1YeyYQoCS8TPNJmy9f7RlIqz2VlyZAuogsAqwZDZD",
+                entity, String.class);
 
     }
 
