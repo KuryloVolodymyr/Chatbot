@@ -1,6 +1,11 @@
 package Bot.Service;
 
+import Bot.Util.Elements.ImageAttachment;
+import Bot.Util.Elements.ImagePayload;
+import Bot.Util.Message.ImageMessage;
+import Bot.Util.Recipient;
 import Bot.Util.RequestHandeling.RequestHandler;
+import Bot.Util.Template.ImageTemplate;
 import Bot.Util.Template.MessageTemplate;
 import Bot.Util.Template.TextMessageTemplate;
 import com.jayway.jsonpath.JsonPath;
@@ -55,12 +60,33 @@ public class MessageService {
         return m.get(message) != null;
     }
 
+    private MessageTemplate handleImageMessage(RequestHandler request){
+        Recipient recipient = new Recipient(request.getEntry().get(0).getMessaging().get(0).getSender().getId());
+        String url = request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments().get(0).getPayload().getUrl();
+        ImagePayload payload = new ImagePayload(url);
+        ImageAttachment imageAttachment = new ImageAttachment(payload);
+        ImageMessage imageMessage = new ImageMessage(imageAttachment);
+        return  new ImageTemplate(recipient, imageMessage);
+    }
+
+
 
     public void processMessage(RequestHandler request) {
 
         long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
-        String text = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
-        MessageTemplate template = new TextMessageTemplate(id, text);
+        MessageTemplate template = new TextMessageTemplate(id, "Sorry, something went wrong (");
+
+        if(request.getEntry().get(0).getMessaging().get(0).getMessage().getText()==null){
+            if (request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments()!=null){
+                if(request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments().get(0).getType().equals("image")){
+                    template = handleImageMessage(request);
+                }
+            }
+        }
+        else {
+            String text = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+            template = new TextMessageTemplate(id, text);
+        }
         callSendAPI(template);
     }
 

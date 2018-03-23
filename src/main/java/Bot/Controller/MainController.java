@@ -1,13 +1,17 @@
 package Bot.Controller;
 
 import Bot.Service.MessageService;
+import Bot.Util.Elements.ImageAttachment;
+import Bot.Util.Elements.ImagePayload;
 import Bot.Util.Elements.QuickReply;
 import Bot.Util.MappingTest;
+import Bot.Util.Message.ImageMessage;
 import Bot.Util.Message.Message;
 import Bot.Util.Message.QuickReplyMessage;
 import Bot.Util.Message.TextMessage;
 import Bot.Util.Recipient;
 import Bot.Util.RequestHandeling.RequestHandler;
+import Bot.Util.Template.ImageTemplate;
 import Bot.Util.Template.MessageTemplate;
 import Bot.Util.Template.QuickReplyTemplate;
 import Bot.Util.Template.TextMessageTemplate;
@@ -52,18 +56,12 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
+    public ResponseEntity<Void> conversation(@RequestBody RequestHandler  data) {
 
-        QuickReply quickReply = new QuickReply("text", "text", "text");
-        List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(quickReply);
-        Recipient recipient = new Recipient(data.getEntry().get(0).getMessaging().get(0).getSender().getId());
-        QuickReplyMessage quickReplyMessage = new QuickReplyMessage("text", quickReplies);
-        MessageTemplate template = new QuickReplyTemplate(recipient, quickReplyMessage);
 
-        messageService.callSendAPI(template);
-//
-//        messageService.processMessage(data);
+
+//        messageService.callSendAPI(imageTemplate);
+        messageService.processMessage(data);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

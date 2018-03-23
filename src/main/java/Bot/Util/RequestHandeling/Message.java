@@ -1,14 +1,23 @@
 package Bot.Util.RequestHandeling;
 
+import java.util.List;
+
 public class Message {
     String mid;
     long seq;
     String text;
+    List<Attachments> attachments;
 
     public Message(String mid, long seq, String text){
         this.mid = mid;
         this.seq = seq;
         this.text = text;
+    }
+
+    public Message(String mid, long seq, List<Attachments> attachments){
+        this.mid = mid;
+        this.seq = seq;
+        this.attachments = attachments;
     }
 
     public Message(){
@@ -37,5 +46,13 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<Attachments> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachments> attachments) {
+        this.attachments = attachments;
     }
 }
