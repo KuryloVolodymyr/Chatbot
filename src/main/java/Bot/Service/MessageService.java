@@ -56,20 +56,17 @@ public class MessageService {
 
     }
 
-    private boolean isMessageTypeOf(Map<String, Object> m, String message) {
-        return m.get(message) != null;
-    }
-
     private MessageTemplate handleImageMessage(RequestHandler request){
+
         Recipient recipient = new Recipient(request.getEntry().get(0).getMessaging().get(0).getSender().getId());
         String url = request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments().get(0).getPayload().getUrl();
+
         ImagePayload payload = new ImagePayload(url);
         ImageAttachment imageAttachment = new ImageAttachment(payload);
         ImageMessage imageMessage = new ImageMessage(imageAttachment);
+
         return  new ImageTemplate(recipient, imageMessage);
     }
-
-
 
     public void processMessage(RequestHandler request) {
 
@@ -89,6 +86,8 @@ public class MessageService {
         }
         callSendAPI(template);
     }
+
+
 
 
 }
