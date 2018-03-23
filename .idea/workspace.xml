@@ -2,43 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa890e84-0fbd-43bb-879a-3af2a07beef5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_40.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_11.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_11.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_11_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_11_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_1_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_1_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_1_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_0_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_0_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_6_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_6_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_6_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_6_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/Message.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Chatbot.iml" afterPath="$PROJECT_DIR$/Chatbot.iml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Application.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bot/Application.class" afterPath="$PROJECT_DIR$/target/classes/Bot/Application.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/Bot/Controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/Bot/Controller/MainController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bot/Util/MessageBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,20 +49,44 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+            <state relative-caret-position="258">
+              <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
+      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="190">
+              <caret line="94" column="30" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
+                <element signature="method#conversation#0;class#MessageService#0" expanded="false" />
+                <element signature="method#isEcho#0;class#MessageService#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextMessageTemplate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding>
+                <element signature="e#496#497#0" expanded="true" />
+                <element signature="e#520#521#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#615#616#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
+                <element signature="e#819#820#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,79 +95,77 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="272">
+              <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#648#664#1" expanded="true" />
+                <element signature="e#856#870#1" expanded="true" />
+                <element signature="e#929#945#1" expanded="true" />
                 <element signature="method#MainController#0;class#MainController#0" expanded="false" />
                 <element signature="method#verifyWebhook#0;class#MainController#0" expanded="false" />
-                <element signature="e#1762#1844#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
+      <file leaf-file-name="RequestHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="119" column="18" lean-forward="false" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
+            <state relative-caret-position="-14">
+              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#buildResponceForText#0;class#MessageService#0" expanded="false" />
-                <element signature="method#buildResponceForAttachment#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleAttachmentMessage#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handlePostbacks#0;class#MessageService#0" expanded="false" />
-                <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-                <element signature="e#4271#4279#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#345#346#0" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
-                <element signature="e#446#447#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#508#509#0" expanded="true" />
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
-                <element signature="e#606#607#0" expanded="true" />
-                <element signature="e#638#639#0" expanded="true" />
-                <element signature="e#675#676#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#760#761#0" expanded="true" />
-                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#286#287#0" expanded="true" />
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#340#341#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
+                <element signature="e#427#428#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#522#523#0" expanded="true" />
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java">
+      <file leaf-file-name="MappingTestInner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#240#241#0" expanded="true" />
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#321#322#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#377#378#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,8 +176,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Singleton" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -184,14 +202,49 @@
         <option value="$PROJECT_DIR$/src/main/java/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MessageTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Recepient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/ReceavedData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Entry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Messaging.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/ReceavedMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Entry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Messaging.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestMappingObj.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
       </list>
     </option>
   </component>
@@ -232,6 +285,7 @@
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,7 +335,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
@@ -290,7 +344,18 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
+              <item name="RequestHandeling" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Bot" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
+              <item name="Template" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
@@ -299,17 +364,10 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,7 +380,12 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../messenger4j-spring-boot-quickstart-template" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../messenger-platform-java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Bot.Util" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -444,48 +507,48 @@
       <option name="presentableId" value="Default" />
       <updated>1521625293155</updated>
       <workItem from="1521625297897" duration="22402000" />
-      <workItem from="1521704613914" duration="27494000" />
+      <workItem from="1521704613914" duration="27553000" />
+      <workItem from="1521791661666" duration="14086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49896000" />
+    <option name="totallyTimeSpent" value="64041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5058565" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992126" sideWeight="0.5087848" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.4941435" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2992126" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149607" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,18 +558,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java</url>
+          <line>64</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="8" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -523,10 +587,8 @@
           <caret line="60" column="76" lean-forward="false" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#648#664#1" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
             <element signature="method#verifyWebhook#0;class#MainController#0" expanded="false" />
-            <element signature="e#1762#1844#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -535,38 +597,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <marker date="1521619129430" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1521619129430" expanded="false" signature="150:256" ph="..." />
-            <marker date="1521619129430" expanded="true" signature="408:415" ph="{}" />
-            <marker date="1521619129430" expanded="true" signature="489:1023" ph="{...}" />
-            <marker date="1521619129430" expanded="false" signature="879:965" ph="toJSONString() → { " />
-            <marker date="1521619129430" expanded="false" signature="974:1006" ph=" }" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20160810/json-20160810.jar!/org/json/JSONArray.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2385">
           <caret line="195" column="39" lean-forward="true" selection-start-line="195" selection-start-column="39" selection-end-line="195" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -574,14 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <marker date="1521619129430" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1521619129430" expanded="false" signature="150:256" ph="..." />
-            <marker date="1521619129430" expanded="true" signature="408:415" ph="{}" />
-            <marker date="1521619129430" expanded="true" signature="489:1023" ph="{...}" />
-            <marker date="1521619129430" expanded="false" signature="879:965" ph="toJSONString() → { " />
-            <marker date="1521619129430" expanded="false" signature="974:1006" ph=" }" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,7 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
           <caret line="69" column="27" lean-forward="true" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,46 +627,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="223" column="5" lean-forward="true" selection-start-line="223" selection-start-column="5" selection-end-line="223" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="119" column="18" lean-forward="false" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#buildResponceForText#0;class#MessageService#0" expanded="false" />
-            <element signature="method#buildResponceForAttachment#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleAttachmentMessage#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handlePostbacks#0;class#MessageService#0" expanded="false" />
-            <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-            <element signature="e#4271#4279#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#421#422#0" expanded="false" />
+            <element signature="e#446#447#0" expanded="false" />
+            <element signature="e#480#481#0" expanded="false" />
+            <element signature="e#508#509#0" expanded="false" />
+            <element signature="e#539#540#0" expanded="false" />
+            <element signature="e#566#567#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#638#639#0" expanded="false" />
+            <element signature="e#675#676#0" expanded="false" />
+            <element signature="e#708#709#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#804#805#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.0.RELEASE/spring-data-commons-1.13.0.RELEASE.jar!/org/springframework/data/web/JsonPath.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
+        <state relative-caret-position="114">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -644,64 +690,407 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Recepient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        <state relative-caret-position="51">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="697">
+          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="method#TextMessage#0;class#TextMessage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#790#791#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="60" lean-forward="false" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Entry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Messaging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestMappingObj.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding>
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#427#428#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="94" column="30" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
+            <element signature="method#conversation#0;class#MessageService#0" expanded="false" />
+            <element signature="method#isEcho#0;class#MessageService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        <state relative-caret-position="272">
+          <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#648#664#1" expanded="true" />
+            <element signature="e#856#870#1" expanded="true" />
+            <element signature="e#929#945#1" expanded="true" />
             <element signature="method#MainController#0;class#MainController#0" expanded="false" />
             <element signature="method#verifyWebhook#0;class#MainController#0" expanded="false" />
-            <element signature="e#1762#1844#0" expanded="false" />
           </folding>
         </state>
       </provider>

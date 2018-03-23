@@ -1,6 +1,13 @@
 package Bot.Controller;
 
 import Bot.Service.MessageService;
+import Bot.Util.MappingTest;
+import Bot.Util.Message.Message;
+import Bot.Util.Message.TextMessage;
+import Bot.Util.RequestHandeling.RequestHandler;
+import Bot.Util.Template.TextMessageTemplate;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.PathNotFoundException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,25 +44,12 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> conversation(@RequestBody final String info) {
-        JSONObject jsonObject = new JSONObject(info);
+    public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
 
-        String senderPSID = jsonObject.getJSONArray("entry").getJSONObject(0)
-                .getJSONArray("messaging").getJSONObject(0)
-                .getJSONObject("sender").getString("id");
+        System.out.println(data.getObject());
 
-//        String recepientPSID = jsonObject.getJSONArray("entry").getJSONObject(0)
-//                .getJSONArray("messaging").getJSONObject(0)
-//                .getJSONObject("recipient").getString("id");
-
-        if (jsonObject.getJSONArray("entry").getJSONObject(0).getJSONArray("messaging")
-                .getJSONObject(0).has("message")) {
-
-            messageService.handleMessage(jsonObject, senderPSID);
-        } else {
-            messageService.handlePostbacks(jsonObject, senderPSID);
-        }
-
+        System.out.println(data.getEntry().get(0).getMessaging().get(0).getMessage().getText());
+       messageService.processMessage(data);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
