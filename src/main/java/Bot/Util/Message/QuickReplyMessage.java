@@ -5,15 +5,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class QuickReplyMessage implements Message {
+public class QuickReplyMessage {
+    private String text;
+    @JsonProperty("quick_replies")
+    private List<QuickReply> quickReplies;
 
-   String text;
+    public QuickReplyMessage(String text, List<QuickReply> quickReplies){
+        this.text = text;
+        this.quickReplies = quickReplies;
+    }
+    public QuickReplyMessage(){
+        super();
+    }
 
-   @JsonProperty("quick_replies")
-   List<QuickReply> quickReplies;
+    public String getText() {
+        return text;
+    }
 
-   public QuickReplyMessage(String text, List<QuickReply> quickReplies){
-       this.text = text;
-       this.quickReplies = quickReplies;
-   }
+    public List<QuickReply> getQuickReplies() {
+        return quickReplies;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setQuickReplies(List<QuickReply> quickReplies) {
+        this.quickReplies = quickReplies;
+    }
 }

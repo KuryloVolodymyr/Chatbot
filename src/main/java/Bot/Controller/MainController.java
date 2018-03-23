@@ -1,10 +1,15 @@
 package Bot.Controller;
 
 import Bot.Service.MessageService;
+import Bot.Util.Elements.QuickReply;
 import Bot.Util.MappingTest;
 import Bot.Util.Message.Message;
+import Bot.Util.Message.QuickReplyMessage;
 import Bot.Util.Message.TextMessage;
+import Bot.Util.Recipient;
 import Bot.Util.RequestHandeling.RequestHandler;
+import Bot.Util.Template.MessageTemplate;
+import Bot.Util.Template.QuickReplyTemplate;
 import Bot.Util.Template.TextMessageTemplate;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
@@ -13,6 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -46,10 +54,16 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
 
-        System.out.println(data.getObject());
+        QuickReply quickReply = new QuickReply("text", "text", "text");
+        List<QuickReply> quickReplies = new ArrayList<>();
+        quickReplies.add(quickReply);
+        Recipient recipient = new Recipient(data.getEntry().get(0).getMessaging().get(0).getSender().getId());
+        QuickReplyMessage quickReplyMessage = new QuickReplyMessage("text", quickReplies);
+        MessageTemplate template = new QuickReplyTemplate(recipient, quickReplyMessage);
 
-        System.out.println(data.getEntry().get(0).getMessaging().get(0).getMessage().getText());
-       messageService.processMessage(data);
+        messageService.callSendAPI(template);
+//
+//        messageService.processMessage(data);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
