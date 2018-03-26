@@ -2,9 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa890e84-0fbd-43bb-879a-3af2a07beef5" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericElement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericPayload.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Character.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CharacterResults.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CollectedIssues.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Collections.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Comics.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsData.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsDate.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsResults.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsSeries.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Creator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Data.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/EventItems.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Events.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Image.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/CharacterItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/ComicsItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/CreatorItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/Items.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/SeriesItems.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelCharacterlResponse.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelComicsResponce.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Price.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Series.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Stories.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/StoryItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/TextObjects.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Thumbnail.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Urls.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Variants.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/GenericMessage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Messaging.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Postback.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/GenericMessageTemplate.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Attachment.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Button.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/ButtonPayload.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Element.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImageAttachment.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/ImageAttachment.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImagePayload.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/ImagePayload.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/LinkButton.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Payload.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/PostbackButton.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/QuickReply.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/ImageMessage.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/ImageMessage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/Message.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/Message.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/QuickReplyMessage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/TextMessage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Recipient.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Attachments.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Attachments.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Entry.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Message.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Payload.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Payload.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/RequestHandler.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Sender.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/ImageTemplate.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/ImageTemplate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/MessageTemplate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/QuickReplyTemplate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/TextMessageTemplate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change beforePath="$PROJECT_DIR$/target/classes/Bot/Controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/Bot/Controller/MainController.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,145 +85,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="267">
+              <caret line="309" column="0" lean-forward="true" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1037#1045#0" expanded="true" />
-                <element signature="method#conversation#0;class#MessageService#0" expanded="false" />
+                <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
+                <element signature="e#1572#1580#0" expanded="true" />
+                <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
+                <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
+                <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
                 <element signature="method#processMessage#0;class#MessageService#0" expanded="false" />
+                <element signature="method#isStart#0;class#MessageService#0" expanded="false" />
+                <element signature="method#isComicsList#0;class#MessageService#0" expanded="false" />
+                <element signature="method#isImage#0;class#MessageService#0" expanded="false" />
+                <element signature="method#isText#0;class#MessageService#0" expanded="false" />
+                <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
+                <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MessageService#0" expanded="false" />
+                <element signature="e#9944#10014#0" expanded="false" />
+                <element signature="method#createHashForCallMarvelApi#0;class#MessageService#0" expanded="false" />
+                <element signature="method#genericTest#0;class#MessageService#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestTemplate.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="149" column="117" lean-forward="false" selection-start-line="149" selection-start-column="114" selection-end-line="149" selection-end-column="117" />
-              <folding>
-                <marker date="1521619128678" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1521619128678" expanded="false" signature="154:2199" ph="..." />
-                <marker date="1521619128678" expanded="true" signature="3370:4667" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="4734:4805" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="4880:5284" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="5372:5645" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="5710:5721" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="5751:5757" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="5826:5954" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="6005:6016" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="6041:6047" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="6124:6406" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="6474:6596" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="6651:6662" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="6693:6699" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="6817:7176" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="7299:7653" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="7744:8079" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="8213:8535" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="8674:8996" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="9103:9411" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="9514:9657" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="9765:9903" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="9979:10098" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="10210:10466" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="10583:10839" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="10924:11166" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="11301:11661" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="11801:12156" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="12264:12587" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="12738:13061" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="13217:13540" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="13664:13973" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="14074:14266" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="14372:14559" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="14633:14801" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="14937:15298" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="15439:15795" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="15904:16228" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="16316:16441" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="16534:16654" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="16715:16816" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="16924:17196" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="17309:17576" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="17657:17905" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="18083:18403" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="18586:18906" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="19057:19363" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="19562:19910" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="20114:20462" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="20634:20968" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="21094:21513" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="21660:22107" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="22289:22460" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="22647:22818" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="22973:23060" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="23220:24532" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="24644:25221" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="25308:25390" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="25465:25544" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="25638:25731" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="25831:25917" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="25982:25993" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="26022:26028" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="26114:26310" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="26151:26162" ph="{}" />
-                <marker date="1521619128678" expanded="true" signature="26251:26304" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="26413:27291" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="26547:26851" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="26946:27285" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="27386:31889" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="27501:27516" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="27546:27556" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="27639:28007" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="28093:31883" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="31964:34664" ph="{...}" />
-                <marker date="1521619128678" expanded="false" signature="32070:32085" ph=" { " />
-                <marker date="1521619128678" expanded="false" signature="32118:32128" ph=" }" />
-                <marker date="1521619128678" expanded="true" signature="32210:33915" ph="{...}" />
-                <marker date="1521619128678" expanded="true" signature="34014:34658" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="82" column="43" lean-forward="true" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-                <element signature="method#verifyWebhook#0;class#MainController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="36" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -189,57 +141,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MessageTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Recepient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/ReceavedData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Entry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Messaging.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/ReceavedMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Entry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Messaging.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestMappingObj.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImagePayload.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Message/ImageMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Template/ImageTemplate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImageAttachment.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestHandeling/RequestDTO/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/SeriesItems.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Series.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/EventItems.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/StoryItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Events.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Stories.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Comics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Urls.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Results.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Data.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/SendDTO/Postback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/SendDTO/Messaging.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Payload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/QuickReplyTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/ButtonPayload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Element.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/PostbackButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/GenericMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/GenericMessageTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericPayload.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Thumbnail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/LinkButton.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CharacterItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Character.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CreatorItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/SeriesItems.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Creator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Image.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Price.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Date.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CollectedIssues.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Collections.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/Variants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Variants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsSeries.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/TextObjects.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsResponce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelComicsResponce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsResults.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsDate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
       </list>
     </option>
   </component>
@@ -277,10 +229,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,7 +273,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="DTO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Bot" type="462c0819:PsiDirectoryNode" />
+              <item name="DTO" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelDTO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
@@ -331,25 +293,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
               <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-              <item name="RequestHandeling" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
@@ -374,7 +317,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../messenger-platform-java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -503,14 +446,17 @@
       <workItem from="1521625297897" duration="22402000" />
       <workItem from="1521704613914" duration="27553000" />
       <workItem from="1521791661666" duration="14086000" />
+      <workItem from="1521822891092" duration="197000" />
+      <workItem from="1522046875107" duration="30885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71217000" />
+    <option name="totallyTimeSpent" value="102299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992126" sideWeight="0.5087848" order="5" side_tool="true" content_ui="tabs" />
@@ -529,7 +475,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992126" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2992126" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149607" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
@@ -539,36 +485,10 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992126" sideWeight="0.5087848" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2992126" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149607" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,383 +499,84 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/skyscreamer/jsonassert/1.4.0/jsonassert-1.4.0.jar!/org/skyscreamer/jsonassert/JSONParser.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/QuickReply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Template/QuickReplyTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/http/HttpEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="69" column="27" lean-forward="true" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageBuilder.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/MessageRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Domain/MessageEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#446#447#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#508#509#0" expanded="false" />
-            <element signature="e#539#540#0" expanded="false" />
-            <element signature="e#566#567#0" expanded="false" />
-            <element signature="e#606#607#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#675#676#0" expanded="false" />
-            <element signature="e#708#709#0" expanded="false" />
-            <element signature="e#760#761#0" expanded="false" />
-            <element signature="e#804#805#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.0.RELEASE/spring-data-commons-1.13.0.RELEASE.jar!/org/springframework/data/web/JsonPath.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MessageTemplate.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Recepient.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/GenericPayload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/LinkButton.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/PostbackButton.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/ButtonPayload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+        <state relative-caret-position="119">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/GenericMessageTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/MessageTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Payload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ButtonPayload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/TextMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="method#TextMessage#0;class#TextMessage#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/GenericMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="60" lean-forward="false" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedMessage.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Entry.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/Messaging.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestObj/ReceavedData.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestMappingObj.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Sender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MappingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Entry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#383#384#0" expanded="false" />
-            <element signature="e#415#416#0" expanded="false" />
-            <element signature="e#442#443#0" expanded="false" />
-            <element signature="e#467#468#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#523#524#0" expanded="false" />
-            <element signature="e#557#558#0" expanded="false" />
-            <element signature="e#585#586#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#686#687#0" expanded="false" />
-            <element signature="e#724#725#0" expanded="false" />
-            <element signature="e#756#757#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/MappingTestInner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/TextMessageTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#520#521#0" expanded="false" />
-            <element signature="e#573#574#0" expanded="false" />
-            <element signature="e#615#616#0" expanded="false" />
-            <element signature="e#654#655#0" expanded="false" />
-            <element signature="e#684#685#0" expanded="false" />
-            <element signature="e#735#736#0" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#819#820#0" expanded="false" />
-            <element signature="e#864#865#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Recipient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#158#159#0" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/QuickReplyMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
-            <element signature="e#481#482#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-            <element signature="e#539#540#0" expanded="false" />
-            <element signature="e#588#589#0" expanded="false" />
-            <element signature="e#623#624#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#761#762#0" expanded="false" />
-            <element signature="e#809#810#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/QuickReply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#401#402#0" expanded="false" />
-            <element signature="e#424#425#0" expanded="false" />
-            <element signature="e#455#456#0" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#514#515#0" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#606#607#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#724#725#0" expanded="false" />
-            <element signature="e#762#763#0" expanded="false" />
-            <element signature="e#804#805#0" expanded="false" />
-            <element signature="e#838#839#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/QuickReplyTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#474#475#0" expanded="false" />
-            <element signature="e#497#498#0" expanded="false" />
-            <element signature="e#536#537#0" expanded="false" />
-            <element signature="e#568#569#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-            <element signature="e#700#701#0" expanded="false" />
-            <element signature="e#738#739#0" expanded="false" />
-            <element signature="e#791#792#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/Attachment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Template/ImageTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#390#391#0" expanded="false" />
-            <element signature="e#413#414#0" expanded="false" />
-            <element signature="e#452#453#0" expanded="false" />
-            <element signature="e#484#485#0" expanded="false" />
-            <element signature="e#524#525#0" expanded="false" />
-            <element signature="e#554#555#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#701#702#0" expanded="false" />
-            <element signature="e#739#740#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImagePayload.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/PostbackButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="e#116#117#0" expanded="false" />
-            <element signature="e#146#147#0" expanded="false" />
-            <element signature="e#174#175#0" expanded="false" />
-            <element signature="e#197#198#0" expanded="false" />
-            <element signature="e#227#228#0" expanded="false" />
-            <element signature="e#253#254#0" expanded="false" />
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#321#322#0" expanded="false" />
-          </folding>
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/RequestHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Payload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding>
-            <element signature="e#285#286#0" expanded="false" />
-            <element signature="e#308#309#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#373#374#0" expanded="false" />
-            <element signature="e#406#407#0" expanded="false" />
-            <element signature="e#435#436#0" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#516#517#0" expanded="false" />
-            <element signature="e#560#561#0" expanded="false" />
-            <element signature="e#596#597#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Payload.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Message/ImageMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Message/QuickReplyMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="10" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Message/TextMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -963,220 +584,736 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Elements/ImageAttachment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#277#278#0" expanded="false" />
-            <element signature="e#300#301#0" expanded="false" />
-            <element signature="e#331#332#0" expanded="false" />
-            <element signature="e#358#359#0" expanded="false" />
-            <element signature="e#398#399#0" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#518#519#0" expanded="false" />
-            <element signature="e#558#559#0" expanded="false" />
-            <element signature="e#590#591#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Attachments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="383">
+          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Messaging.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/Attachment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#453#454#0" expanded="false" />
-            <element signature="e#476#477#0" expanded="false" />
-            <element signature="e#510#511#0" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#711#712#0" expanded="false" />
-            <element signature="e#740#741#0" expanded="false" />
-            <element signature="e#787#788#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#878#879#0" expanded="false" />
-            <element signature="e#920#921#0" expanded="false" />
-            <element signature="e#964#965#0" expanded="false" />
-            <element signature="e#1000#1001#0" expanded="false" />
-            <element signature="e#1048#1049#0" expanded="false" />
-            <element signature="e#1090#1091#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/Message/ImageMessage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericPayload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="e#191#192#0" expanded="false" />
-            <element signature="e#235#236#0" expanded="false" />
-            <element signature="e#264#265#0" expanded="false" />
-            <element signature="e#287#288#0" expanded="false" />
-            <element signature="e#333#334#0" expanded="false" />
-            <element signature="e#366#367#0" expanded="false" />
-            <element signature="e#427#428#0" expanded="false" />
-            <element signature="e#471#472#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Util/RequestHandeling/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <element signature="e#936#937#0" expanded="false" />
-            <element signature="e#970#971#0" expanded="false" />
-            <element signature="e#1035#1036#0" expanded="false" />
-            <element signature="e#1081#1082#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="149" column="117" lean-forward="false" selection-start-line="149" selection-start-column="114" selection-end-line="149" selection-end-column="117" />
-          <folding>
-            <marker date="1521619128678" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1521619128678" expanded="false" signature="154:2199" ph="..." />
-            <marker date="1521619128678" expanded="true" signature="3370:4667" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="4734:4805" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="4880:5284" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="5372:5645" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="5710:5721" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="5751:5757" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="5826:5954" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="6005:6016" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="6041:6047" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="6124:6406" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="6474:6596" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="6651:6662" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="6693:6699" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="6817:7176" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="7299:7653" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="7744:8079" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="8213:8535" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="8674:8996" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="9103:9411" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="9514:9657" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="9765:9903" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="9979:10098" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="10210:10466" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="10583:10839" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="10924:11166" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="11301:11661" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="11801:12156" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="12264:12587" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="12738:13061" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="13217:13540" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="13664:13973" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="14074:14266" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="14372:14559" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="14633:14801" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="14937:15298" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="15439:15795" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="15904:16228" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="16316:16441" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="16534:16654" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="16715:16816" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="16924:17196" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="17309:17576" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="17657:17905" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="18083:18403" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="18586:18906" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="19057:19363" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="19562:19910" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="20114:20462" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="20634:20968" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="21094:21513" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="21660:22107" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="22289:22460" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="22647:22818" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="22973:23060" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="23220:24532" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="24644:25221" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="25308:25390" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="25465:25544" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="25638:25731" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="25831:25917" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="25982:25993" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="26022:26028" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="26114:26310" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="26151:26162" ph="{}" />
-            <marker date="1521619128678" expanded="true" signature="26251:26304" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="26413:27291" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="26547:26851" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="26946:27285" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="27386:31889" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="27501:27516" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="27546:27556" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="27639:28007" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="28093:31883" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="31964:34664" ph="{...}" />
-            <marker date="1521619128678" expanded="false" signature="32070:32085" ph=" { " />
-            <marker date="1521619128678" expanded="false" signature="32118:32128" ph=" }" />
-            <marker date="1521619128678" expanded="true" signature="32210:33915" ph="{...}" />
-            <marker date="1521619128678" expanded="true" signature="34014:34658" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="629">
+          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1037#1045#0" expanded="true" />
-            <element signature="method#conversation#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
-            <element signature="method#processMessage#0;class#MessageService#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Message/GenericMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        <state relative-caret-position="139">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Template/GenericMessageTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Thumbnail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CharacterResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="20" />
+          <folding>
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/LinkButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1136#1137#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1222#1223#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1310#1311#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="36" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="82" column="43" lean-forward="true" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+        <state relative-caret-position="210">
+          <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/EventItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/StoryItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/CharacterItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/ComicsItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/SeriesItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Price.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/CreatorItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#353#354#0" expanded="false" />
+            <element signature="e#376#377#0" expanded="false" />
+            <element signature="e#407#408#0" expanded="false" />
+            <element signature="e#434#435#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#506#507#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#564#565#0" expanded="false" />
+            <element signature="e#604#605#0" expanded="false" />
+            <element signature="e#636#637#0" expanded="false" />
+            <element signature="e#690#691#0" expanded="false" />
+            <element signature="e#736#737#0" expanded="false" />
+            <element signature="e#776#777#0" expanded="false" />
+            <element signature="e#808#809#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Item/Items.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Variants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Collections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Urls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsOnly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/TextObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="33" />
+          <folding>
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Comics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CollectedIssues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Creator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#MainController#0;class#MainController#0" expanded="false" />
-            <element signature="method#verifyWebhook#0;class#MainController#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1183#1184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Series.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Stories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="27" />
+          <folding>
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1151#1152#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelComicsResponce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding>
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1113#1114#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#1196#1197#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1578#1579#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1694#1695#0" expanded="true" />
+            <element signature="e#1748#1749#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/MarvelCharacterlResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="135" column="17" lean-forward="false" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="124" column="47" lean-forward="false" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2726#2727#0" expanded="true" />
+            <element signature="e#2749#2750#0" expanded="true" />
+            <element signature="e#2781#2782#0" expanded="true" />
+            <element signature="e#2809#2810#0" expanded="true" />
+            <element signature="e#2836#2837#0" expanded="true" />
+            <element signature="e#2861#2862#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2927#2928#0" expanded="true" />
+            <element signature="e#2965#2966#0" expanded="true" />
+            <element signature="e#2999#3000#0" expanded="true" />
+            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#3071#3072#0" expanded="true" />
+            <element signature="e#3106#3107#0" expanded="true" />
+            <element signature="e#3133#3134#0" expanded="true" />
+            <element signature="e#3166#3167#0" expanded="true" />
+            <element signature="e#3195#3196#0" expanded="true" />
+            <element signature="e#3252#3253#0" expanded="true" />
+            <element signature="e#3290#3291#0" expanded="true" />
+            <element signature="e#3339#3340#0" expanded="true" />
+            <element signature="e#3373#3374#0" expanded="true" />
+            <element signature="e#3407#3408#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+            <element signature="e#3505#3506#0" expanded="true" />
+            <element signature="e#3548#3549#0" expanded="true" />
+            <element signature="e#3579#3580#0" expanded="true" />
+            <element signature="e#3616#3617#0" expanded="true" />
+            <element signature="e#3649#3650#0" expanded="true" />
+            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="e#3721#3722#0" expanded="true" />
+            <element signature="e#3770#3771#0" expanded="true" />
+            <element signature="e#3804#3805#0" expanded="true" />
+            <element signature="e#3834#3835#0" expanded="true" />
+            <element signature="e#3860#3861#0" expanded="true" />
+            <element signature="e#3893#3894#0" expanded="true" />
+            <element signature="e#3922#3923#0" expanded="true" />
+            <element signature="e#3953#3954#0" expanded="true" />
+            <element signature="e#3980#3981#0" expanded="true" />
+            <element signature="e#4011#4012#0" expanded="true" />
+            <element signature="e#4038#4039#0" expanded="true" />
+            <element signature="e#4068#4069#0" expanded="true" />
+            <element signature="e#4094#4095#0" expanded="true" />
+            <element signature="e#4139#4140#0" expanded="true" />
+            <element signature="e#4180#4181#0" expanded="true" />
+            <element signature="e#4219#4220#0" expanded="true" />
+            <element signature="e#4251#4252#0" expanded="true" />
+            <element signature="e#4286#4287#0" expanded="true" />
+            <element signature="e#4316#4317#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4378#4379#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
+            <element signature="e#4451#4452#0" expanded="true" />
+            <element signature="e#4487#4488#0" expanded="true" />
+            <element signature="e#4518#4519#0" expanded="true" />
+            <element signature="e#4560#4561#0" expanded="true" />
+            <element signature="e#4588#4589#0" expanded="true" />
+            <element signature="e#4626#4627#0" expanded="true" />
+            <element signature="e#4655#4656#0" expanded="true" />
+            <element signature="e#4693#4694#0" expanded="true" />
+            <element signature="e#4722#4723#0" expanded="true" />
+            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="e#4798#4799#0" expanded="true" />
+            <element signature="e#4832#4833#0" expanded="true" />
+            <element signature="e#4860#4861#0" expanded="true" />
+            <element signature="e#4914#4915#0" expanded="true" />
+            <element signature="e#4960#4961#0" expanded="true" />
+            <element signature="e#5008#5009#0" expanded="true" />
+            <element signature="e#5048#5049#0" expanded="true" />
+            <element signature="e#5100#5101#0" expanded="true" />
+            <element signature="e#5144#5145#0" expanded="true" />
+            <element signature="e#5188#5189#0" expanded="true" />
+            <element signature="e#5220#5221#0" expanded="true" />
+            <element signature="e#5274#5275#0" expanded="true" />
+            <element signature="e#5320#5321#0" expanded="true" />
+            <element signature="e#5368#5369#0" expanded="true" />
+            <element signature="e#5410#5411#0" expanded="true" />
+            <element signature="e#5448#5449#0" expanded="true" />
+            <element signature="e#5478#5479#0" expanded="true" />
+            <element signature="e#5522#5523#0" expanded="true" />
+            <element signature="e#5558#5559#0" expanded="true" />
+            <element signature="e#5598#5599#0" expanded="true" />
+            <element signature="e#5630#5631#0" expanded="true" />
+            <element signature="e#5670#5671#0" expanded="true" />
+            <element signature="e#5702#5703#0" expanded="true" />
+            <element signature="e#5756#5757#0" expanded="true" />
+            <element signature="e#5802#5803#0" expanded="true" />
+            <element signature="e#5846#5847#0" expanded="true" />
+            <element signature="e#5882#5883#0" expanded="true" />
+            <element signature="e#5930#5931#0" expanded="true" />
+            <element signature="e#5972#5973#0" expanded="true" />
+            <element signature="e#6037#6038#0" expanded="true" />
+            <element signature="e#6083#6084#0" expanded="true" />
+            <element signature="e#6121#6122#0" expanded="true" />
+            <element signature="e#6151#6152#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6279#6280#0" expanded="true" />
+            <element signature="e#6332#6333#0" expanded="true" />
+            <element signature="e#6374#6375#0" expanded="true" />
+            <element signature="e#6421#6422#0" expanded="true" />
+            <element signature="e#6459#6460#0" expanded="true" />
+            <element signature="e#6503#6504#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
+            <element signature="e#6594#6595#0" expanded="true" />
+            <element signature="e#6638#6639#0" expanded="true" />
+            <element signature="e#6715#6716#0" expanded="true" />
+            <element signature="e#6769#6770#0" expanded="true" />
+            <element signature="e#6834#6835#0" expanded="true" />
+            <element signature="e#6880#6881#0" expanded="true" />
+            <element signature="e#6929#6930#0" expanded="true" />
+            <element signature="e#6969#6970#0" expanded="true" />
+            <element signature="e#7021#7022#0" expanded="true" />
+            <element signature="e#7055#7056#0" expanded="true" />
+            <element signature="e#7104#7105#0" expanded="true" />
+            <element signature="e#7140#7141#0" expanded="true" />
+            <element signature="e#7189#7190#0" expanded="true" />
+            <element signature="e#7225#7226#0" expanded="true" />
+            <element signature="e#7281#7282#0" expanded="true" />
+            <element signature="e#7321#7322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="309" column="0" lean-forward="true" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
+            <element signature="e#1572#1580#0" expanded="true" />
+            <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
+            <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
+            <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
+            <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
+            <element signature="method#processMessage#0;class#MessageService#0" expanded="false" />
+            <element signature="method#isStart#0;class#MessageService#0" expanded="false" />
+            <element signature="method#isComicsList#0;class#MessageService#0" expanded="false" />
+            <element signature="method#isImage#0;class#MessageService#0" expanded="false" />
+            <element signature="method#isText#0;class#MessageService#0" expanded="false" />
+            <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
+            <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MessageService#0" expanded="false" />
+            <element signature="e#9944#10014#0" expanded="false" />
+            <element signature="method#createHashForCallMarvelApi#0;class#MessageService#0" expanded="false" />
+            <element signature="method#genericTest#0;class#MessageService#0" expanded="false" />
           </folding>
         </state>
       </provider>
