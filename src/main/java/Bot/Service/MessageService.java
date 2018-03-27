@@ -8,7 +8,9 @@ import Bot.DTO.Message.QuickReplyMessage;
 import Bot.DTO.Recipient;
 import Bot.DTO.RequestDTO.RequestHandler;
 import Bot.DTO.Template.*;
+import Bot.Domain.HeroesRatingEntity;
 import Bot.Domain.UserRequestEntity;
+import Bot.Repository.HeroesRatingRepository;
 import Bot.Repository.UserRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +37,10 @@ public class MessageService {
     private UserRequestRepository userRequestRepository;
 
     @Autowired
-    MarvelTemplateBuilder marvelTemplateBuilder;
+    private HeroesRatingRepository heroesRatingRepository;
+
+    @Autowired
+    private MarvelTemplateBuilder marvelTemplateBuilder;
 
     @Value("${pageAccessToken}")
     private String pageAccessToken;
@@ -54,7 +59,6 @@ public class MessageService {
 
     @Value("${responce.noTemplateInitialized}")
     private String noTemplateInitialized;
-
 
     private void callSendAPI(MessageTemplate message) {
         HttpHeaders headers = new HttpHeaders();
@@ -122,6 +126,12 @@ public class MessageService {
         return messageTemplate;
     }
 
+    private MessageTemplate handleRatingTemplate(RequestHandler request){
+        Long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+        String reply = "You`ve successfully rated the Hero, lets keep going";
+        return new TextMessageTemplate(id, reply);
+    }
+
     public void processMessage(RequestHandler request) {
 
         long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
@@ -137,14 +147,29 @@ public class MessageService {
                 MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload());
                 template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
             } else if (isRate(request)) {
-                System.out.println("Rate");
+                template = new QuickReplyTemplate(id, getRatingQuickReply(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload()));
             }
         } else {
             if (isQuickReply(request)) {
                 if (isHeroQuickReply(request)) {
                     template = handleTextMessage(request);
+                } else if (isRatingQuickReply(request)) {
+
+                    String heroName = request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply().getPayload();
+                    Long senderPSID = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+                    String rating = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+                    if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
+                        heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));
+                    } else {
+                        HeroesRatingEntity oldRating = heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID);
+                        Long ratingId = oldRating.getId();
+                        HeroesRatingEntity newRating = new HeroesRatingEntity(heroName, senderPSID, rating);
+                        newRating.setId(ratingId);
+                        heroesRatingRepository.save(newRating);
+                    }
+                    template = handleRatingTemplate(request);
                 } else {
-                    System.out.println("Quicky");
+                    System.out.println("Quick reply not trigered");
                 }
             } else {
                 template = handleTextMessage(request);
@@ -231,6 +256,11 @@ public class MessageService {
         return request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply().getPayload().equals("hero");
     }
 
+    private boolean isRatingQuickReply(RequestHandler request) {
+        String reply = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+        return reply.equals("\uD83D\uDC4D") || reply.equals("\uD83D\uDC4E");
+    }
+
     private QuickReplyMessage getHeroesForQuickReply(String text) {
         List<QuickReply> quickReplies = new ArrayList<>();
         quickReplies.add(new QuickReply("text", "Ant-Man", "hero"));
@@ -244,6 +274,14 @@ public class MessageService {
         quickReplies.add(new QuickReply("text", "Starlord", "hero"));
         quickReplies.add(new QuickReply("text", "Doctor Strange", "hero"));
         return new QuickReplyMessage(text, quickReplies);
+    }
+
+    private QuickReplyMessage getRatingQuickReply(String id) {
+        String ratingMessage = "What do you think about this hero?";
+        List<QuickReply> quickReplies = new ArrayList<>();
+        quickReplies.add(new QuickReply("text", "\uD83D\uDC4D", id));
+        quickReplies.add(new QuickReply("text", "\uD83D\uDC4E", id));
+        return new QuickReplyMessage(ratingMessage, quickReplies);
     }
 
     private String createHashForCallMarvelApi(String ts) {

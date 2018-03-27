@@ -61,7 +61,7 @@ public class MarvelTemplateBuilder {
                 buttons.add(new LinkButton("Read more on Wiki", wiki));
             }
             buttons.add(new PostbackButton("Comics", charachterId));
-            buttons.add(new PostbackButton("Rate", charachterId));
+            buttons.add(new PostbackButton("Rate", characherName));
             genericElement = new GenericElement(characherName, characherDescription, imageUrl, buttons);
 
 

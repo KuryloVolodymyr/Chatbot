@@ -1,5 +1,6 @@
 package Bot.Controller;
 
+import Bot.DTO.DialogFlowTest;
 import Bot.DTO.Elements.*;
 import Bot.DTO.Message.GenericMessage;
 import Bot.DTO.RequestDTO.RequestHandler;
@@ -48,13 +49,21 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
+    public ResponseEntity<HttpEntity>/*<Void>*/ conversation(@RequestBody RequestHandler data) {
+
 
 //        System.out.println(data);
+//        DialogFlowTest dialogFlowResponce = new DialogFlowTest("EVERYTHING FINE", "EVERYTHING FINE");
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//        HttpEntity<Object> entity = new HttpEntity<>(dialogFlowResponce, headers);
 
-        messageService.processMessage(data);
 
         return new ResponseEntity<>(HttpStatus.OK);
+//        messageService.processMessage(data);
+
+//        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
