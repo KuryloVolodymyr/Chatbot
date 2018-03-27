@@ -50,7 +50,7 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
 
-        System.out.println(data);
+//        System.out.println(data);
 
         messageService.processMessage(data);
 

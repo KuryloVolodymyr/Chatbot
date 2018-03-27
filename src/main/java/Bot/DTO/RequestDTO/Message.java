@@ -1,17 +1,28 @@
 package Bot.DTO.RequestDTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Message {
-    String mid;
-    long seq;
-    String text;
-    List<Attachments> attachments;
+    private String mid;
+    private long seq;
+    private String text;
+    @JsonProperty("quick_reply")
+    private QuickReply quickReply;
+    private List<Attachments> attachments;
 
     public Message(String mid, long seq, String text){
         this.mid = mid;
         this.seq = seq;
         this.text = text;
+    }
+
+    public Message(String mid, long seq, String text, QuickReply quickReply){
+        this.mid = mid;
+        this.seq = seq;
+        this.text = text;
+        this.quickReply = quickReply;
     }
 
     public Message(String mid, long seq, List<Attachments> attachments){
@@ -34,6 +45,18 @@ public class Message {
 
     public String getText() {
         return text;
+    }
+
+    public QuickReply getQuickReply() {
+        return quickReply;
+    }
+
+    public void setSeq(long seq) {
+        this.seq = seq;
+    }
+
+    public void setQuickReply(QuickReply quickReply) {
+        this.quickReply = quickReply;
     }
 
     public void setMid(String mid) {

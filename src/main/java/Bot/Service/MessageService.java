@@ -8,6 +8,8 @@ import Bot.DTO.Message.QuickReplyMessage;
 import Bot.DTO.Recipient;
 import Bot.DTO.RequestDTO.RequestHandler;
 import Bot.DTO.Template.*;
+import Bot.Domain.UserRequestEntity;
+import Bot.Repository.UserRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -29,6 +31,12 @@ public class MessageService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserRequestRepository userRequestRepository;
+
+    @Autowired
+    MarvelTemplateBuilder marvelTemplateBuilder;
+
     @Value("${pageAccessToken}")
     private String pageAccessToken;
 
@@ -38,9 +46,15 @@ public class MessageService {
     @Value("${marvel.publicKey}")
     private String marvelPublicKey;
 
+    @Value("${responce.greeting}")
+    private String greeting;
 
-    private static final String greeting = "Hi, I am Marvel Bot. I can help you find information about your favorite Marvel Heroes. Just type" +
-            " name of Character thay you interested in, or choose one from the heroes below";
+    @Value("${responce.herNotFound}")
+    private String heroNotFound;
+
+    @Value("${responce.noTemplateInitialized}")
+    private String noTemplateInitialized;
+
 
     private void callSendAPI(MessageTemplate message) {
         HttpHeaders headers = new HttpHeaders();
@@ -48,7 +62,7 @@ public class MessageService {
         HttpEntity<Object> entity = new HttpEntity<Object>(message, headers);
         String responceFromSendAPI = restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token={token}",
                 entity, String.class, pageAccessToken);
-        System.out.println(responceFromSendAPI);
+        System.out.println("OK");
 
     }
 
@@ -63,16 +77,16 @@ public class MessageService {
 
     }
 
-//    private MarvelComicsResponce callMarvelAPIForComics(String characterId) {
-//        String ts = new Timestamp(System.currentTimeMillis()).toString();
-//        String limit = "5";
-//
-//        String hash = createHashForCallMarvelApi(ts);
-//
-//        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
-//                MarvelComicsResponce.class, characterId, limit, ts, marvelPublicKey, hash);
-//
-//    }
+    private MarvelComicsResponce callMarvelAPIForComics(String characterId) {
+        String ts = new Timestamp(System.currentTimeMillis()).toString();
+        String limit = "5";
+
+        String hash = createHashForCallMarvelApi(ts);
+
+        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
+                MarvelComicsResponce.class, characterId, limit, ts, marvelPublicKey, hash);
+
+    }
 
     private MessageTemplate handleImageMessage(RequestHandler request) {
 
@@ -96,10 +110,14 @@ public class MessageService {
         MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
 
         if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
-            messageTemplate = buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
+            messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
+            String character = marvelCharacterlResponse.getData().getResults().get(0).getName();
+            Long characterId = marvelCharacterlResponse.getData().getResults().get(0).getId();
+            Long senderPSID = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+            userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
         } else {
             messageTemplate = new TextMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(),
-                    "Sorry, I couldn`t find this character, mayby you`ve typed his name wrong. Try again, please");
+                    heroNotFound);
         }
         return messageTemplate;
     }
@@ -107,29 +125,31 @@ public class MessageService {
     public void processMessage(RequestHandler request) {
 
         long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
-        MessageTemplate template = new TextMessageTemplate(id, "Sorry, something went wrong (");
+        MessageTemplate template = new TextMessageTemplate(id, noTemplateInitialized);
 
 
         if (!isText(request)) {
-            System.out.println("Not text");
             if (isImage(request)) {
-                System.out.println("Is image");
                 template = handleImageMessage(request);
             } else if (isStart(request)) {
-                System.out.println("Is start");
                 template = handleGreeting(request);
+            } else if (isGetComics(request)) {
+                MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload());
+                template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
+            } else if (isRate(request)) {
+                System.out.println("Rate");
             }
-//            else if (isComicsList(request))
-//            {
-//                MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload());
-//                template = buildGenericTemplateFromMarvelComicsResponce(request ,marvelComicsResponce);
-//                System.out.println("template build");
-//            }
         } else {
-            System.out.println("Is text");
-            template = handleTextMessage(request);
+            if (isQuickReply(request)) {
+                if (isHeroQuickReply(request)) {
+                    template = handleTextMessage(request);
+                } else {
+                    System.out.println("Quicky");
+                }
+            } else {
+                template = handleTextMessage(request);
+            }
         }
-        System.out.println("calling send api");
         callSendAPI(template);
     }
 
@@ -145,14 +165,14 @@ public class MessageService {
         }
     }
 
-    private boolean isComicsList(RequestHandler request) {
+    private boolean isGetComics(RequestHandler request) {
         if (request.getEntry().get(0).getMessaging().get(0).getPostback() == null) {
             return false;
         } else {
             if (request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload() == null) {
                 return false;
             } else {
-               return request.getEntry().get(0).getMessaging().get(0).getPostback().getTitle().equals("Comics");
+                return request.getEntry().get(0).getMessaging().get(0).getPostback().getTitle().equals("Comics");
             }
         }
     }
@@ -184,137 +204,49 @@ public class MessageService {
         }
     }
 
+    private boolean isRate(RequestHandler request) {
+        if (request.getEntry().get(0).getMessaging().get(0).getPostback() == null) {
+            return false;
+        } else {
+            if (request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload() == null) {
+                return false;
+            } else {
+                return request.getEntry().get(0).getMessaging().get(0).getPostback().getTitle().equals("Rate");
+            }
+        }
+    }
+
+    private boolean isQuickReply(RequestHandler request) {
+        if (request.getEntry().get(0).getMessaging().get(0).getMessage() == null) {
+            return false;
+        } else {
+            if (request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply() == null) {
+                return false;
+            } else
+                return true;
+        }
+    }
+
+    private boolean isHeroQuickReply(RequestHandler request) {
+        return request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply().getPayload().equals("hero");
+    }
+
     private QuickReplyMessage getHeroesForQuickReply(String text) {
         List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(new QuickReply("text", "Ant-Man", "Ant-Man"));
-        quickReplies.add(new QuickReply("text", "Iron-Man", "Iron-Man"));
-        quickReplies.add(new QuickReply("text", "Hulk", "Hulk"));
-        quickReplies.add(new QuickReply("text", "Spider-Man", "Spider-Man"));
-        quickReplies.add(new QuickReply("text", "Sandman", "Sandman"));
-        quickReplies.add(new QuickReply("text", "Captain America", "Captain America"));
-        quickReplies.add(new QuickReply("text", "Thor", "Thor"));
-        quickReplies.add(new QuickReply("text", "Vision", "Vision"));
-        quickReplies.add(new QuickReply("text", "Starlord", "Starlord"));
-        quickReplies.add(new QuickReply("text", "Doctor Strange", "Doctor Strange"));
+        quickReplies.add(new QuickReply("text", "Ant-Man", "hero"));
+        quickReplies.add(new QuickReply("text", "Iron Man", "hero"));
+        quickReplies.add(new QuickReply("text", "Hulk", "hero"));
+        quickReplies.add(new QuickReply("text", "Spider-Man", "hero"));
+        quickReplies.add(new QuickReply("text", "Sandman", "hero"));
+        quickReplies.add(new QuickReply("text", "Captain America", "hero"));
+        quickReplies.add(new QuickReply("text", "Thor", "hero"));
+        quickReplies.add(new QuickReply("text", "Vision", "hero"));
+        quickReplies.add(new QuickReply("text", "Starlord", "hero"));
+        quickReplies.add(new QuickReply("text", "Doctor Strange", "hero"));
         return new QuickReplyMessage(text, quickReplies);
     }
 
-    private MessageTemplate buildGenericTemplateFromMarvelCharacterResponce(RequestHandler request, MarvelCharacterlResponse marvelCharacterlResponse) {
-
-        GenericElement genericElement;
-        List<GenericElement> elements = new ArrayList<>();
-        List<Button> buttons = new ArrayList<>();
-
-        List<CharacterResults> results = marvelCharacterlResponse.getData().getResults();
-
-        for (CharacterResults result : results) {
-            String characherName = result.getName();
-            String characherDescription = result.getDescription();
-
-            //Converting Id from Long to String
-            String charachterId = result.getId().toString();
-
-            if (characherDescription.isEmpty()) {
-                characherDescription = "Read about character on wiki";
-            }
-
-            //Building link to character image
-            String imagePath = result.getThumbnail().getPath();
-            String imageExtention = result.getThumbnail().getExtension();
-            String imageUrl = imagePath + "." + imageExtention;
-
-            String wiki = "";
-
-            // Search for link to Marvel Wiki page of character
-            List<Urls> urls = result.getUrls();
-            for (Urls url : urls) {
-                if (url.getType().equals("wiki")) {
-                    wiki = url.getUrl();
-                }
-            }
-
-            //If there is link to wiki building generic template with link button,
-            //if there is no link to wiki building generic template without buttons
-            if (!wiki.isEmpty()) {
-                buttons.add(new LinkButton("Read more on Wiki", wiki));
-            }
-            buttons.add(new PostbackButton("Comics", charachterId));
-            genericElement = new GenericElement(characherName, characherDescription, imageUrl, buttons);
-
-
-            elements.add(genericElement);
-
-        }
-        GenericPayload genericPayload = new GenericPayload(elements);
-        Attachment attachment = new Attachment(genericPayload);
-        GenericMessage genericMessage = new GenericMessage(attachment);
-
-        return new GenericMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(), genericMessage);
-    }
-
-
-    //TODO
-//    private MessageTemplate buildGenericTemplateFromMarvelComicsResponce(RequestHandler request, MarvelComicsResponce marvelComicsResponse) {
-//
-//        GenericElement genericElement;
-//        List<GenericElement> elements = new ArrayList<>();
-//        List<Button> buttons = new ArrayList<>();
-//
-//        List<ComicsResults> results = marvelComicsResponse.getData().getResults();
-//
-//
-//
-//        for (ComicsResults result : results) {
-//            String comicsTitle = result.getTitle();
-//            String comicsDescription = result.getDecription();
-//
-//            System.out.println(comicsTitle);
-//            System.out.println(comicsDescription);
-//            if (comicsDescription == null)
-//            {
-//                comicsDescription = "Click Info to Read About Comics";
-//            }
-//            else{
-//                if(result.getDecription().isEmpty()){
-//                    comicsDescription = "Click Info to Read About Comics";
-//                }
-//            }
-//
-//            String imagePath = result.getThumbnail().getPath();
-//            String imageExtension = result.getThumbnail().getExtension();
-//
-//            String imageUrl = imagePath+"."+imageExtension;
-//
-//            String comicsInfo = "";
-//
-//            List<Urls> urls = result.getUrls();
-//            for (Urls url : urls) {
-//                if (url.getType().equals("detail")) {
-//                    comicsInfo = url.getUrl();
-//                }
-//            }
-//
-//            if (!comicsInfo.isEmpty()) {
-//                buttons.add(new LinkButton("Read more info on comics", comicsInfo));
-//                genericElement = new GenericElement(comicsTitle, comicsDescription, imageUrl, buttons);
-//            } else {
-//                genericElement = new GenericElement(comicsTitle, comicsDescription, imageUrl);
-//            }
-//            elements.add(genericElement);
-//
-//        }
-//        GenericPayload genericPayload = new GenericPayload(elements);
-//        Attachment attachment = new Attachment(genericPayload);
-//
-//        GenericMessage genericMessage = new GenericMessage(attachment);
-//
-//        System.out.println("building template");
-//        //Throws NPE ???
-//
-//        return new GenericMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(), genericMessage);
-//    }
-
-    private String createHashForCallMarvelApi(String ts){
+    private String createHashForCallMarvelApi(String ts) {
         String hash = "hash";
         try {
 
