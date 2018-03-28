@@ -26,7 +26,7 @@ public class MarvelTemplateBuilder {
 
         GenericElement genericElement;
         List<GenericElement> elements = new ArrayList<>();
-        List<Button> buttons = new ArrayList<>();
+        List<Button> buttons;
 
         List<CharacterResults> results = marvelCharacterlResponse.getData().getResults();
 
@@ -37,14 +37,21 @@ public class MarvelTemplateBuilder {
             //Converting Id from Long to String
             String charachterId = result.getId().toString();
 
-            if (characherDescription.isEmpty()) {
+            if (characherDescription == null || characherDescription.isEmpty()) {
                 characherDescription = "Read about character on wiki";
             }
 
             //Building link to character image
+
             String imagePath = result.getThumbnail().getPath();
             String imageExtention = result.getThumbnail().getExtension();
             String imageUrl = imagePath + "." + imageExtention;
+
+            System.out.println(imageUrl);
+
+            if (imageUrl.equals(imageNotAvailable)) {
+                imageUrl = marvelLogoUrl;
+            }
 
             String wiki = "";
 
@@ -58,15 +65,13 @@ public class MarvelTemplateBuilder {
 
             //If there is link to wiki building generic template with link button,
             //if there is no link to wiki building generic template without buttons
+            buttons = new ArrayList<>();
             if (!wiki.isEmpty()) {
                 buttons.add(new LinkButton("Read more on Wiki", wiki));
             }
             buttons.add(new PostbackButton("Comics", charachterId));
             buttons.add(new PostbackButton("Rate", characherName));
-            genericElement = new GenericElement(characherName, characherDescription, imageUrl, buttons);
-
-
-            elements.add(genericElement);
+            elements.add(new GenericElement(characherName, characherDescription, imageUrl, buttons));
 
         }
         GenericPayload genericPayload = new GenericPayload(elements);

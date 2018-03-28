@@ -49,21 +49,14 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<HttpEntity>/*<Void>*/ conversation(@RequestBody RequestHandler data) {
+    public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
 
+        System.out.println(data);
 
-//        System.out.println(data);
-//        DialogFlowTest dialogFlowResponce = new DialogFlowTest("EVERYTHING FINE", "EVERYTHING FINE");
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        HttpEntity<Object> entity = new HttpEntity<>(dialogFlowResponce, headers);
+//      DialogFlowTest dialogFlowResponce = new DialogFlowTest("EVERYTHING FINE", "EVERYTHING FINE");
 
-        messageService.processMessage(data.getEntry().get(0).getMessaging().get(0));
+        messageService.processRequest(data.getEntry().get(0).getMessaging().get(0));
         return new ResponseEntity<>(HttpStatus.OK);
-//
-
-//        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
