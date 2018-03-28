@@ -59,9 +59,9 @@ public class MainController {
 //        headers.setContentType(MediaType.APPLICATION_JSON);
 //        HttpEntity<Object> entity = new HttpEntity<>(dialogFlowResponce, headers);
 
-
+        messageService.processMessage(data.getEntry().get(0).getMessaging().get(0));
         return new ResponseEntity<>(HttpStatus.OK);
-//        messageService.processMessage(data);
+//
 
 //        return new ResponseEntity<>(HttpStatus.OK);
     }

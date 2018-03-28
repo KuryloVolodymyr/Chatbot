@@ -3,6 +3,7 @@ package Bot.Service;
 import Bot.DTO.Elements.*;
 import Bot.DTO.MarvelDTO.*;
 import Bot.DTO.Message.GenericMessage;
+import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.RequestDTO.RequestHandler;
 import Bot.DTO.Template.GenericMessageTemplate;
 import Bot.DTO.Template.MessageTemplate;
@@ -21,7 +22,7 @@ public class MarvelTemplateBuilder {
     @Value("${marvel.imageNotAvailable}")
     private String imageNotAvailable;
 
-    public MessageTemplate buildGenericTemplateFromMarvelCharacterResponce(RequestHandler request, MarvelCharacterlResponse marvelCharacterlResponse) {
+    public MessageTemplate buildGenericTemplateFromMarvelCharacterResponce(Messaging request, MarvelCharacterlResponse marvelCharacterlResponse) {
 
         GenericElement genericElement;
         List<GenericElement> elements = new ArrayList<>();
@@ -72,10 +73,10 @@ public class MarvelTemplateBuilder {
         Attachment attachment = new Attachment(genericPayload);
         GenericMessage genericMessage = new GenericMessage(attachment);
 
-        return new GenericMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(), genericMessage);
+        return new GenericMessageTemplate(request.getSender().getId(), genericMessage);
     }
 
-    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(RequestHandler request, MarvelComicsResponce marvelComicsResponse) {
+    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponce marvelComicsResponse) {
 
         List<GenericElement> elements = new ArrayList<>();
         List<Button> buttons;
@@ -119,7 +120,7 @@ public class MarvelTemplateBuilder {
         Attachment attachment = new Attachment(payload);
         GenericMessage genericMessage = new GenericMessage(attachment);
 
-        return new GenericMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(), genericMessage);
+        return new GenericMessageTemplate(request.getSender().getId(), genericMessage);
     }
 
 }

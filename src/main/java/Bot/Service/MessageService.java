@@ -6,6 +6,7 @@ import Bot.DTO.Message.GenericMessage;
 import Bot.DTO.Message.ImageMessage;
 import Bot.DTO.Message.QuickReplyMessage;
 import Bot.DTO.Recipient;
+import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.RequestDTO.RequestHandler;
 import Bot.DTO.Template.*;
 import Bot.Domain.HeroesRatingEntity;
@@ -92,10 +93,10 @@ public class MessageService {
 
     }
 
-    private MessageTemplate handleImageMessage(RequestHandler request) {
+    private MessageTemplate handleImageMessage(Messaging request) {
 
-        Recipient recipient = new Recipient(request.getEntry().get(0).getMessaging().get(0).getSender().getId());
-        String url = request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments().get(0).getPayload().getUrl();
+        Recipient recipient = new Recipient(request.getSender().getId());
+        String url = request.getMessage().getAttachments().get(0).getPayload().getUrl();
 
         ImagePayload payload = new ImagePayload(url);
         ImageAttachment imageAttachment = new ImageAttachment(payload);
@@ -104,37 +105,37 @@ public class MessageService {
         return new ImageTemplate(recipient, imageMessage);
     }
 
-    private MessageTemplate handleGreeting(RequestHandler request) {
-        return new QuickReplyTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(), getHeroesForQuickReply(greeting));
+    private MessageTemplate handleGreeting(Messaging request) {
+        return new QuickReplyTemplate(request.getSender().getId(), getHeroesForQuickReply(greeting));
     }
 
-    private MessageTemplate handleTextMessage(RequestHandler request) {
+    private MessageTemplate handleTextMessage(Messaging request) {
         MessageTemplate messageTemplate;
-        String characterName = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+        String characterName = request.getMessage().getText();
         MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
 
         if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
             messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
             String character = marvelCharacterlResponse.getData().getResults().get(0).getName();
             Long characterId = marvelCharacterlResponse.getData().getResults().get(0).getId();
-            Long senderPSID = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+            Long senderPSID = request.getSender().getId();
             userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
         } else {
-            messageTemplate = new TextMessageTemplate(request.getEntry().get(0).getMessaging().get(0).getSender().getId(),
+            messageTemplate = new TextMessageTemplate(request.getSender().getId(),
                     heroNotFound);
         }
         return messageTemplate;
     }
 
-    private MessageTemplate handleRatingTemplate(RequestHandler request){
-        Long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+    private MessageTemplate handleRatingTemplate(Messaging request) {
+        Long id = request.getSender().getId();
         String reply = "You`ve successfully rated the Hero, lets keep going";
         return new TextMessageTemplate(id, reply);
     }
 
-    public void processMessage(RequestHandler request) {
+    public void processMessage(Messaging request) {
 
-        long id = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
+        long id = request.getSender().getId();
         MessageTemplate template = new TextMessageTemplate(id, noTemplateInitialized);
 
 
@@ -144,10 +145,10 @@ public class MessageService {
             } else if (isStart(request)) {
                 template = handleGreeting(request);
             } else if (isGetComics(request)) {
-                MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload());
+                MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload());
                 template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
             } else if (isRate(request)) {
-                template = new QuickReplyTemplate(id, getRatingQuickReply(request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload()));
+                template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
             }
         } else {
             if (isQuickReply(request)) {
@@ -155,9 +156,9 @@ public class MessageService {
                     template = handleTextMessage(request);
                 } else if (isRatingQuickReply(request)) {
 
-                    String heroName = request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply().getPayload();
-                    Long senderPSID = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
-                    String rating = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+                    String heroName = request.getMessage().getQuickReply().getPayload();
+                    Long senderPSID = request.getSender().getId();
+                    String rating = request.getMessage().getText();
                     if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
                         heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));
                     } else {
@@ -178,38 +179,38 @@ public class MessageService {
         callSendAPI(template);
     }
 
-    private boolean isStart(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getPostback() == null) {
+    private boolean isStart(Messaging request) {
+        if (request.getPostback() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload() == null) {
+            if (request.getPostback().getPayload() == null) {
                 return false;
             } else {
-                return request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload().equals("Start");
+                return request.getPostback().getPayload().equals("Start");
             }
         }
     }
 
-    private boolean isGetComics(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getPostback() == null) {
+    private boolean isGetComics(Messaging request) {
+        if (request.getPostback() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload() == null) {
+            if (request.getPostback().getPayload() == null) {
                 return false;
             } else {
-                return request.getEntry().get(0).getMessaging().get(0).getPostback().getTitle().equals("Comics");
+                return request.getPostback().getTitle().equals("Comics");
             }
         }
     }
 
-    private boolean isImage(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getMessage() == null) {
+    private boolean isImage(Messaging request) {
+        if (request.getMessage() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments() == null) {
+            if (request.getMessage().getAttachments() == null) {
                 return false;
             } else {
-                if (request.getEntry().get(0).getMessaging().get(0).getMessage().getAttachments().get(0).getType().equals("image")) {
+                if (request.getMessage().getAttachments().get(0).getType().equals("image")) {
                     return true;
                 } else {
                     return false;
@@ -218,46 +219,46 @@ public class MessageService {
         }
     }
 
-    private boolean isText(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getMessage() == null) {
+    private boolean isText(Messaging request) {
+        if (request.getMessage() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getMessage().getText() == null) {
+            if (request.getMessage().getText() == null) {
                 return false;
             } else
                 return true;
         }
     }
 
-    private boolean isRate(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getPostback() == null) {
+    private boolean isRate(Messaging request) {
+        if (request.getPostback() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getPostback().getPayload() == null) {
+            if (request.getPostback().getPayload() == null) {
                 return false;
             } else {
-                return request.getEntry().get(0).getMessaging().get(0).getPostback().getTitle().equals("Rate");
+                return request.getPostback().getTitle().equals("Rate");
             }
         }
     }
 
-    private boolean isQuickReply(RequestHandler request) {
-        if (request.getEntry().get(0).getMessaging().get(0).getMessage() == null) {
+    private boolean isQuickReply(Messaging request) {
+        if (request.getMessage() == null) {
             return false;
         } else {
-            if (request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply() == null) {
+            if (request.getMessage().getQuickReply() == null) {
                 return false;
             } else
                 return true;
         }
     }
 
-    private boolean isHeroQuickReply(RequestHandler request) {
-        return request.getEntry().get(0).getMessaging().get(0).getMessage().getQuickReply().getPayload().equals("hero");
+    private boolean isHeroQuickReply(Messaging request) {
+        return request.getMessage().getQuickReply().getPayload().equals("hero");
     }
 
-    private boolean isRatingQuickReply(RequestHandler request) {
-        String reply = request.getEntry().get(0).getMessaging().get(0).getMessage().getText();
+    private boolean isRatingQuickReply(Messaging request) {
+        String reply = request.getMessage().getText();
         return reply.equals("\uD83D\uDC4D") || reply.equals("\uD83D\uDC4E");
     }
 

@@ -13,14 +13,12 @@ public class Application {
 
     @Bean
     public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate;
+        return new RestTemplate();
     }
 
     @Bean
     public MarvelTemplateBuilder marvelTemplateBuilder() {
-        MarvelTemplateBuilder marvelTemplateBuilder = new MarvelTemplateBuilder();
-        return marvelTemplateBuilder;
+        return new MarvelTemplateBuilder();
     }
 
     public static void main(String[] args) {
