@@ -85,4 +85,16 @@ public class MessageTypeDetector {
         String reply = request.getMessage().getText();
         return reply.equals("\uD83D\uDC4D") || reply.equals("\uD83D\uDC4E");
     }
+
+    public boolean isMoreComics(Messaging request) {
+        if (request.getPostback() == null) {
+            return false;
+        } else {
+            if (request.getPostback().getPayload() == null) {
+                return false;
+            } else {
+                return request.getPostback().getTitle().equals("More comics");
+            }
+        }
+    }
 }

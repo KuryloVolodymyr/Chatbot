@@ -4,12 +4,8 @@ import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
 import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
 import Bot.DTO.Elements.*;
 import Bot.DTO.MarvelDTO.*;
-import Bot.DTO.Message.GenericMessage;
-import Bot.DTO.Message.ImageMessage;
 import Bot.DTO.Message.QuickReplyMessage;
-import Bot.DTO.Recipient;
 import Bot.DTO.RequestDTO.Messaging;
-import Bot.DTO.RequestDTO.RequestHandler;
 import Bot.DTO.Template.*;
 import Bot.Domain.HeroesRatingEntity;
 import Bot.Domain.UserRequestEntity;
@@ -24,7 +20,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.Character;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
@@ -105,7 +100,10 @@ public class MessageService {
                 template = handleGreeting(request);
             } else if (messageTypeDetector.isGetComics(request)) {
                 template = handleComicsTemplate(request);
-            } else if (messageTypeDetector.isRate(request)) {
+            } else if (messageTypeDetector.isMoreComics(request)){
+                template = handleMoreComics(request);
+            }
+            else if (messageTypeDetector.isRate(request)) {
                 template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
             }
         } else {
@@ -132,10 +130,11 @@ public class MessageService {
     private void callSendAPI(MessageTemplate message) throws HttpClientErrorException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<Object> entity = new HttpEntity<Object>(message, headers);
+        HttpEntity<Object> entity = new HttpEntity<>(message, headers);
 
         String responceFromSendAPI = restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token={token}",
                 entity, String.class, pageAccessToken);
+        System.out.println(responceFromSendAPI);
 
         System.out.println("OK");
     }
@@ -181,14 +180,24 @@ public class MessageService {
 
     }
 
+    private MarvelComicsResponce callMarvelAPIForComics(String characterId, String offset) throws HttpClientErrorException {
+        String ts = new Timestamp(System.currentTimeMillis()).toString();
+        String limit = "5";
+
+        String hash = createHashForCallMarvelApi(ts);
+
+        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?&limit={limit}&offset={offset}&ts={ts}&apikey={key}&hash={hash}",
+                MarvelComicsResponce.class, characterId, limit, offset, ts, marvelPublicKey, hash);
+
+    }
+
     private DialogFlowResponse callDialogFlowApi(DialogFlowRequest dialogFlowRequest) throws HttpClientErrorException {
         String url = "https://api.dialogflow.com/v1/query?v=20150910";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + dialogFlowClientToken);
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<>(dialogFlowRequest, headers);
-        DialogFlowResponse dialogFlowResponse = restTemplate.postForObject(url, entity, DialogFlowResponse.class);
-        return dialogFlowResponse;
+        return restTemplate.postForObject(url, entity, DialogFlowResponse.class);
     }
 
     private MessageTemplate handleImageMessage(Messaging request) {
@@ -267,6 +276,30 @@ public class MessageService {
             MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload());
             if (!marvelComicsResponce.getData().getResults().isEmpty()) {
                 template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
+            } else {
+                template = new TextMessageTemplate(request.getSender().getId(), noComicsFound);
+            }
+        } catch (HttpClientErrorException e) {
+            System.out.println("HttpException on comics");
+            System.out.println(e.getLocalizedMessage());
+            template = new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage);
+        }
+        return template;
+    }
+
+    private MessageTemplate handleMoreComics(Messaging request) {
+        MessageTemplate template;
+        String characterId = request.getPostback().getPayload().split("/")[0];
+        System.out.println(request.getPostback().getPayload());
+        Long offsetLong = Long.parseLong(request.getPostback().getPayload().split("/")[1]);
+        System.out.println(request.getPostback().getPayload().split("/")[1]);
+        offsetLong += 5L;
+        String offset = offsetLong.toString();
+        try {
+
+            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(characterId, offset);
+            if (!marvelComicsResponce.getData().getResults().isEmpty()) {
+                template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce, offset, characterId);
             } else {
                 template = new TextMessageTemplate(request.getSender().getId(), noComicsFound);
             }

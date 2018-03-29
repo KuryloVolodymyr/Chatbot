@@ -85,6 +85,57 @@ public class MarvelTemplateBuilder {
 
         List<GenericElement> elements = new ArrayList<>();
         List<Button> buttons;
+        String heroId =request.getPostback().getPayload();
+
+        List<ComicsResults> results = marvelComicsResponse.getData().getResults();
+
+        for (ComicsResults result : results) {
+            String comicsTitle = result.getTitle();
+            String comicsDescription = result.getDecription();
+
+            if (comicsDescription == null || comicsDescription.isEmpty()) {
+                comicsDescription = "Read more by clicking button below";
+            }
+
+            String imagePath = result.getThumbnail().getPath();
+            String imageExtention = result.getThumbnail().getExtension();
+            String imageURL = imagePath + "." + imageExtention;
+
+            if (imageURL.equals(imageNotAvailable)) {
+                imageURL = marvelLogoUrl;
+            }
+
+            String comicsInfo = "";
+
+            List<Urls> urls = result.getUrls();
+            for (Urls url : urls) {
+                if (url.getType().equals("detail")) {
+                    comicsInfo = url.getUrl();
+                }
+            }
+            if (comicsInfo == null || comicsInfo.isEmpty()) {
+            elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL));
+        } else {
+            buttons = new ArrayList<>();
+            buttons.add(new LinkButton("Comics info", comicsInfo));
+            elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL, buttons));
+
+        }
+    }
+        List<Button> moreButton = new ArrayList<>();
+        moreButton.add(new PostbackButton("More comics", heroId+"/"+"0"));
+        elements.add(new GenericElement("More comics", "", "", moreButton));
+        GenericPayload payload = new GenericPayload(elements);
+        Attachment attachment = new Attachment(payload);
+        GenericMessage genericMessage = new GenericMessage(attachment);
+
+        return new GenericMessageTemplate(request.getSender().getId(), genericMessage);
+    }
+
+    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponce marvelComicsResponse, String offset, String characterId) {
+
+        List<GenericElement> elements = new ArrayList<>();
+        List<Button> buttons;
 
         List<ComicsResults> results = marvelComicsResponse.getData().getResults();
 
@@ -121,9 +172,9 @@ public class MarvelTemplateBuilder {
 
             }
         }
-//        List<Button> moreButton = new ArrayList<>();
-//        moreButton.add(new PostbackButton("Get more Comics", "moreComics"));
-//        elements.add(new GenericElement("", "", "", moreButton));
+       List<Button> moreButton = new ArrayList<>();
+        moreButton.add(new PostbackButton("More comics", characterId+"/"+offset));
+        elements.add(new GenericElement("More comics", "", "", moreButton));
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);
         GenericMessage genericMessage = new GenericMessage(attachment);
