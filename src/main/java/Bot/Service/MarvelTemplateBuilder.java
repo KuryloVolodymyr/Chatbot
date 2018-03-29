@@ -121,6 +121,9 @@ public class MarvelTemplateBuilder {
 
             }
         }
+//        List<Button> moreButton = new ArrayList<>();
+//        moreButton.add(new PostbackButton("Get more Comics", "moreComics"));
+//        elements.add(new GenericElement("", "", "", moreButton));
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);
         GenericMessage genericMessage = new GenericMessage(attachment);

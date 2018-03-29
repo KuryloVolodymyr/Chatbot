@@ -1,4 +1,4 @@
-package Bot.DTO.DialogFlowDTO;
+package Bot.DTO.DialogFlowDTO.DialogFlowResponse;
 
 public class Context {
     public Context(){

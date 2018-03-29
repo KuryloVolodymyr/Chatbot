@@ -1,5 +1,7 @@
 package Bot.Service;
 
+import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
+import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
 import Bot.DTO.Elements.*;
 import Bot.DTO.MarvelDTO.*;
 import Bot.DTO.Message.GenericMessage;
@@ -45,6 +47,9 @@ public class MessageService {
     @Autowired
     private MarvelTemplateBuilder marvelTemplateBuilder;
 
+    @Autowired
+    private MessageTypeDetector messageTypeDetector;
+
     @Value("${pageAccessToken}")
     private String pageAccessToken;
 
@@ -53,6 +58,12 @@ public class MessageService {
 
     @Value("${marvel.publicKey}")
     private String marvelPublicKey;
+
+    @Value("${dialogFlow.clientAccessToken}")
+    private String dialogFlowClientToken;
+
+    @Value("${dialogFlow.developerAccessToken}")
+    private String dialogFlowDeveloperToken;
 
     @Value("${responce.greeting}")
     private String greeting;
@@ -66,32 +77,42 @@ public class MessageService {
     @Value("${responce.noComicsFound}")
     private String noComicsFound;
 
+    @Value("${responce.cantFindHeroName}")
+    private String cantFindHeroName;
+
+    @Value("${responce.handleImage}")
+    private String imageHandleMessage;
+
+    @Value("${responce.httpException}")
+    private String httpExceptionMessage;
+
+    @Value("${responce.ratingReply}")
+    private String ratingReply;
+
+    @Value("${responce.help}")
+    private String helpMessage;
+
 
     public void processRequest(Messaging request) {
 
         long id = request.getSender().getId();
         MessageTemplate template = new TextMessageTemplate(id, noTemplateInitialized);
 
-        if (!isText(request)) {
-            if (isImage(request)) {
+        if (!messageTypeDetector.isText(request)) {
+            if (messageTypeDetector.isImage(request)) {
                 template = handleImageMessage(request);
-            } else if (isStart(request)) {
+            } else if (messageTypeDetector.isStart(request)) {
                 template = handleGreeting(request);
-            } else if (isGetComics(request)) {
-                MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload());
-                if (!marvelComicsResponce.getData().getResults().isEmpty()) {
-                    template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
-                } else {
-                    template = new TextMessageTemplate(id, noComicsFound);
-                }
-            } else if (isRate(request)) {
+            } else if (messageTypeDetector.isGetComics(request)) {
+                template = handleComicsTemplate(request);
+            } else if (messageTypeDetector.isRate(request)) {
                 template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
             }
         } else {
-            if (isQuickReply(request)) {
-                if (isHeroQuickReply(request)) {
-                    template = handleTextMessage(request);
-                } else if (isRatingQuickReply(request)) {
+            if (messageTypeDetector.isQuickReply(request)) {
+                if (messageTypeDetector.isHeroQuickReply(request)) {
+                    template = handleGreetingQuickReply(request);
+                } else if (messageTypeDetector.isRatingQuickReply(request)) {
                     rateHero(request);
                     template = handleRatingTemplate(request);
                 } else {
@@ -101,24 +122,25 @@ public class MessageService {
                 template = handleTextMessage(request);
             }
         }
-        callSendAPI(template);
+        try {
+            callSendAPI(template);
+        } catch (HttpClientErrorException e) {
+            callSendAPI(new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage));
+        }
     }
 
-    private void callSendAPI(MessageTemplate message) {
+    private void callSendAPI(MessageTemplate message) throws HttpClientErrorException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<Object>(message, headers);
-        try {
-            String responceFromSendAPI = restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token={token}",
-                    entity, String.class, pageAccessToken);
-        } catch (HttpClientErrorException e) {
-            System.out.println(e.getLocalizedMessage());
-        }
-        System.out.println("OK");
 
+        String responceFromSendAPI = restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token={token}",
+                entity, String.class, pageAccessToken);
+
+        System.out.println("OK");
     }
 
-    private MarvelCharacterlResponse callMarvelAPIForChatacter(String characterName) {
+    private MarvelCharacterlResponse callMarvelAPIForChatacter(String characterName) throws HttpClientErrorException {
         MarvelCharacterlResponse marvelCharacterlResponse;
 
         String ts = new Timestamp(System.currentTimeMillis()).toString();
@@ -148,7 +170,7 @@ public class MessageService {
         return marvelCharacterlResponse;
     }
 
-    private MarvelComicsResponce callMarvelAPIForComics(String characterId) {
+    private MarvelComicsResponce callMarvelAPIForComics(String characterId) throws HttpClientErrorException {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
         String limit = "5";
 
@@ -159,16 +181,27 @@ public class MessageService {
 
     }
 
+    private DialogFlowResponse callDialogFlowApi(DialogFlowRequest dialogFlowRequest) throws HttpClientErrorException {
+        String url = "https://api.dialogflow.com/v1/query?v=20150910";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + dialogFlowClientToken);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Object> entity = new HttpEntity<>(dialogFlowRequest, headers);
+        DialogFlowResponse dialogFlowResponse = restTemplate.postForObject(url, entity, DialogFlowResponse.class);
+        return dialogFlowResponse;
+    }
+
     private MessageTemplate handleImageMessage(Messaging request) {
 
-        Recipient recipient = new Recipient(request.getSender().getId());
-        String url = request.getMessage().getAttachments().get(0).getPayload().getUrl();
+//        String url = request.getMessage().getAttachments().get(0).getPayload().getUrl();
+//
+//        ImagePayload payload = new ImagePayload(url);
+//        ImageAttachment imageAttachment = new ImageAttachment(payload);
+//        ImageMessage imageMessage = new ImageMessage(imageAttachment);
+//
+//        return new ImageTemplate(recipient, imageMessage);
 
-        ImagePayload payload = new ImagePayload(url);
-        ImageAttachment imageAttachment = new ImageAttachment(payload);
-        ImageMessage imageMessage = new ImageMessage(imageAttachment);
-
-        return new ImageTemplate(recipient, imageMessage);
+        return new TextMessageTemplate(request.getSender().getId(), imageHandleMessage);
     }
 
     private MessageTemplate handleGreeting(Messaging request) {
@@ -177,114 +210,103 @@ public class MessageService {
 
     private MessageTemplate handleTextMessage(Messaging request) {
         MessageTemplate messageTemplate;
-        String characterName = request.getMessage().getText();
-        MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
+        String textMessage = request.getMessage().getText();
 
-        if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
-            Long senderPSID = request.getSender().getId();
+        try {
+            DialogFlowRequest dialogFlowRequest = new DialogFlowRequest(textMessage);
 
-            //Saving Responce to database
-            for (CharacterResults results : marvelCharacterlResponse.getData().getResults()) {
-                String character = results.getName();
-                Long characterId = results.getId();
-                userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
+
+            DialogFlowResponse dialogFlowResponse = callDialogFlowApi(dialogFlowRequest);
+            if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("thankYou")) {
+                return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
+            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("help")){
+                return new TextMessageTemplate(request.getSender().getId(), helpMessage);
             }
-            messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
+            else {
+                String characterName = dialogFlowResponse.getResult().getParameters().getHeroName();
+                MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
 
-        } else {
-            messageTemplate = new TextMessageTemplate(request.getSender().getId(),
-                    heroNotFound);
+                if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
+                    Long senderPSID = request.getSender().getId();
+
+                    //Saving Responce to database
+                    for (CharacterResults results : marvelCharacterlResponse.getData().getResults()) {
+                        String character = results.getName();
+                        Long characterId = results.getId();
+                        userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
+                    }
+                    messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
+
+                } else {
+                    messageTemplate = new TextMessageTemplate(request.getSender().getId(),
+                            heroNotFound);
+                }
+            }
+        } catch (NullPointerException e) {
+            System.out.println("NPE");
+            System.out.println(e.getLocalizedMessage());
+            messageTemplate = new TextMessageTemplate(request.getSender().getId(), cantFindHeroName);
+        } catch (HttpClientErrorException e) {
+            System.out.println("Http exception");
+            System.out.println(e.getLocalizedMessage());
+            messageTemplate = new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage);
         }
+
         return messageTemplate;
     }
 
     private MessageTemplate handleRatingTemplate(Messaging request) {
         Long id = request.getSender().getId();
-        String reply = "You`ve successfully rated the Hero, lets keep going";
-        return new TextMessageTemplate(id, reply);
+        return new QuickReplyTemplate(id, getHeroesForQuickReply(ratingReply));
     }
 
-    private boolean isStart(Messaging request) {
-        if (request.getPostback() == null) {
-            return false;
-        } else {
-            if (request.getPostback().getPayload() == null) {
-                return false;
+    private MessageTemplate handleComicsTemplate(Messaging request) {
+        MessageTemplate template;
+        try {
+
+            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload());
+            if (!marvelComicsResponce.getData().getResults().isEmpty()) {
+                template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
             } else {
-                return request.getPostback().getPayload().equals("Start");
+                template = new TextMessageTemplate(request.getSender().getId(), noComicsFound);
             }
+        } catch (HttpClientErrorException e) {
+            System.out.println("HttpException on comics");
+            System.out.println(e.getLocalizedMessage());
+            template = new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage);
         }
+        return template;
     }
 
-    private boolean isGetComics(Messaging request) {
-        if (request.getPostback() == null) {
-            return false;
-        } else {
-            if (request.getPostback().getPayload() == null) {
-                return false;
-            } else {
-                return request.getPostback().getTitle().equals("Comics");
-            }
-        }
-    }
+    private MessageTemplate handleGreetingQuickReply(Messaging request) {
+        MessageTemplate template;
+        String characterName = request.getMessage().getText();
 
-    private boolean isImage(Messaging request) {
-        if (request.getMessage() == null) {
-            return false;
-        } else {
-            if (request.getMessage().getAttachments() == null) {
-                return false;
-            } else {
-                if (request.getMessage().getAttachments().get(0).getType().equals("image")) {
-                    return true;
-                } else {
-                    return false;
+        try {
+            MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
+
+            if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
+                Long senderPSID = request.getSender().getId();
+
+                //Saving Responce to database
+                for (CharacterResults results : marvelCharacterlResponse.getData().getResults()) {
+                    String character = results.getName();
+                    Long characterId = results.getId();
+                    userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
                 }
-            }
-        }
-    }
+                template = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
 
-    private boolean isText(Messaging request) {
-        if (request.getMessage() == null) {
-            return false;
-        } else {
-            if (request.getMessage().getText() == null) {
-                return false;
-            } else
-                return true;
-        }
-    }
-
-    private boolean isRate(Messaging request) {
-        if (request.getPostback() == null) {
-            return false;
-        } else {
-            if (request.getPostback().getPayload() == null) {
-                return false;
             } else {
-                return request.getPostback().getTitle().equals("Rate");
+                template = new TextMessageTemplate(request.getSender().getId(),
+                        heroNotFound);
             }
+        } catch (HttpClientErrorException e) {
+            System.out.println("HttpException");
+            System.out.println(e.getLocalizedMessage());
+            template = new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage);
         }
-    }
 
-    private boolean isQuickReply(Messaging request) {
-        if (request.getMessage() == null) {
-            return false;
-        } else {
-            if (request.getMessage().getQuickReply() == null) {
-                return false;
-            } else
-                return true;
-        }
-    }
-
-    private boolean isHeroQuickReply(Messaging request) {
-        return request.getMessage().getQuickReply().getPayload().equals("hero");
-    }
-
-    private boolean isRatingQuickReply(Messaging request) {
-        String reply = request.getMessage().getText();
-        return reply.equals("\uD83D\uDC4D") || reply.equals("\uD83D\uDC4E");
+        return template;
     }
 
     private QuickReplyMessage getHeroesForQuickReply(String text) {

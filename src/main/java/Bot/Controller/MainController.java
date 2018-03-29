@@ -1,20 +1,15 @@
 package Bot.Controller;
 
-import Bot.DTO.DialogFlowTest;
-import Bot.DTO.Elements.*;
-import Bot.DTO.Message.GenericMessage;
+import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
+import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
+import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.RequestDTO.RequestHandler;
-import Bot.DTO.Template.GenericMessageTemplate;
-import Bot.DTO.Template.MessageTemplate;
 import Bot.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RestController
@@ -49,13 +44,13 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> conversation(@RequestBody RequestHandler data) {
+    public ResponseEntity<Void> conversation(@RequestBody RequestHandler  data) {
 
         System.out.println(data);
 
-//      DialogFlowTest dialogFlowResponce = new DialogFlowTest("EVERYTHING FINE", "EVERYTHING FINE");
+        Messaging messageContent = data.getEntry().get(0).getMessaging().get(0);
 
-        messageService.processRequest(data.getEntry().get(0).getMessaging().get(0));
+        messageService.processRequest(messageContent);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -1,13 +1,15 @@
-package Bot.DTO.DialogFlowDTO;
+package Bot.DTO.DialogFlowDTO.DialogFlowResponse;
 
 public class Status {
     private Long code;
     private String errorType;
+    private String errorDetails;
     private Boolean webhookTimedOut;
 
-    public Status(Long code, String errorType, Boolean webhookTimedOut){
+    public Status(Long code, String errorType,String errorDetails, Boolean webhookTimedOut){
         this.code = code;
         this.errorType = errorType;
+        this.errorDetails = errorDetails;
         this.webhookTimedOut = webhookTimedOut;
     }
 
@@ -27,6 +29,10 @@ public class Status {
         return errorType;
     }
 
+    public String getErrorDetails() {
+        return errorDetails;
+    }
+
     public void setErrorType(String errorType) {
         this.errorType = errorType;
     }
@@ -37,5 +43,9 @@ public class Status {
 
     public void setWebhookTimedOut(Boolean webhookTimedOut) {
         this.webhookTimedOut = webhookTimedOut;
+    }
+
+    public void setErrorDetails(String errorDetails) {
+        this.errorDetails = errorDetails;
     }
 }

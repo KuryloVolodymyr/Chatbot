@@ -1,26 +1,23 @@
-package Bot.DTO.DialogFlowDTO;
+package Bot.DTO.DialogFlowDTO.DialogFlowResponse;
 
-import Bot.DTO.RequestDTO.Messaging;
-import Bot.DTO.RequestDTO.RequestHandler;
-
-public class DialogFlowBody {
-    private OriginalRequest originalRequest;
+public class DialogFlowResponse {
     private String id;
     private String timestamp;
     private String lang;
     private Result result;
+    private Status status;
     private String sessionId;
 
-    public DialogFlowBody(OriginalRequest originalRequest ,String id, String timestamp, String lang, Result result, String sessionId) {
-        this.originalRequest = originalRequest;
+    public DialogFlowResponse(String id, String timestamp, String lang, Result result, Status status, String sessionId) {
         this.id = id;
         this.timestamp = timestamp;
         this.lang = lang;
         this.result = result;
+        this.status = status;
         this.sessionId = sessionId;
     }
 
-    public DialogFlowBody() {
+    public DialogFlowResponse() {
         super();
     }
 
@@ -44,8 +41,8 @@ public class DialogFlowBody {
         return timestamp;
     }
 
-    public OriginalRequest getOriginalRequest() {
-        return originalRequest;
+    public Status getStatus() {
+        return status;
     }
 
     public void setId(String id) {
@@ -68,7 +65,7 @@ public class DialogFlowBody {
         this.sessionId = sessionId;
     }
 
-    public void setOriginalRequest(OriginalRequest originalRequest) {
-        this.originalRequest = originalRequest;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
