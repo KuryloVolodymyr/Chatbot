@@ -13,6 +13,7 @@ import Bot.Repository.HeroesRatingRepository;
 import Bot.Repository.UserRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -87,7 +88,6 @@ public class MessageService {
     @Value("${responce.help}")
     private String helpMessage;
 
-
     public void processRequest(Messaging request) {
 
         long id = request.getSender().getId();
@@ -100,10 +100,9 @@ public class MessageService {
                 template = handleGreeting(request);
             } else if (messageTypeDetector.isGetComics(request)) {
                 template = handleComicsTemplate(request);
-            } else if (messageTypeDetector.isMoreComics(request)){
+            } else if (messageTypeDetector.isMoreComics(request)) {
                 template = handleMoreComics(request);
-            }
-            else if (messageTypeDetector.isRate(request)) {
+            } else if (messageTypeDetector.isRate(request)) {
                 template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
             }
         } else {
@@ -175,7 +174,7 @@ public class MessageService {
 
         String hash = createHashForCallMarvelApi(ts);
 
-        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
+        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?orderBy=-focDate&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
                 MarvelComicsResponce.class, characterId, limit, ts, marvelPublicKey, hash);
 
     }
@@ -228,10 +227,11 @@ public class MessageService {
             DialogFlowResponse dialogFlowResponse = callDialogFlowApi(dialogFlowRequest);
             if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("thankYou")) {
                 return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
-            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("help")){
+            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("help")) {
                 return new TextMessageTemplate(request.getSender().getId(), helpMessage);
-            }
-            else {
+            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("dc")) {
+                return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
+            } else {
                 String characterName = dialogFlowResponse.getResult().getParameters().getHeroName();
                 MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
 
@@ -251,6 +251,7 @@ public class MessageService {
                             heroNotFound);
                 }
             }
+
         } catch (NullPointerException e) {
             System.out.println("NPE");
             System.out.println(e.getLocalizedMessage());
@@ -405,5 +406,7 @@ public class MessageService {
             heroesRatingRepository.save(newRating);
         }
     }
+
+
 }
 

@@ -85,7 +85,7 @@ public class MarvelTemplateBuilder {
 
         List<GenericElement> elements = new ArrayList<>();
         List<Button> buttons;
-        String heroId =request.getPostback().getPayload();
+        String characterId = request.getPostback().getPayload();
 
         List<ComicsResults> results = marvelComicsResponse.getData().getResults();
 
@@ -114,17 +114,20 @@ public class MarvelTemplateBuilder {
                 }
             }
             if (comicsInfo == null || comicsInfo.isEmpty()) {
-            elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL));
-        } else {
-            buttons = new ArrayList<>();
-            buttons.add(new LinkButton("Comics info", comicsInfo));
-            elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL, buttons));
+                elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL));
+            } else {
+                buttons = new ArrayList<>();
+                buttons.add(new LinkButton("Comics info", comicsInfo));
+                elements.add(new GenericElement(comicsTitle, comicsDescription, imageURL, buttons));
 
+            }
         }
-    }
-        List<Button> moreButton = new ArrayList<>();
-        moreButton.add(new PostbackButton("More comics", heroId+"/"+"0"));
-        elements.add(new GenericElement("More comics", "", "", moreButton));
+
+        if (marvelComicsResponse.getData().getCount().equals(marvelComicsResponse.getData().getLimit())) {
+            List<Button> moreButton = new ArrayList<>();
+            moreButton.add(new PostbackButton("More comics", characterId + "/" + 0));
+            elements.add(new GenericElement("More comics", "", "", moreButton));
+        }
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);
         GenericMessage genericMessage = new GenericMessage(attachment);
@@ -172,9 +175,12 @@ public class MarvelTemplateBuilder {
 
             }
         }
-       List<Button> moreButton = new ArrayList<>();
-        moreButton.add(new PostbackButton("More comics", characterId+"/"+offset));
-        elements.add(new GenericElement("More comics", "", "", moreButton));
+
+        if (marvelComicsResponse.getData().getCount().equals(marvelComicsResponse.getData().getLimit())) {
+            List<Button> moreButton = new ArrayList<>();
+            moreButton.add(new PostbackButton("More comics", characterId + "/" + offset));
+            elements.add(new GenericElement("More comics", "", "", moreButton));
+        }
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);
         GenericMessage genericMessage = new GenericMessage(attachment);

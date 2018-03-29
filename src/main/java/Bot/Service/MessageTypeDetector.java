@@ -2,6 +2,9 @@ package Bot.Service;
 
 import Bot.DTO.RequestDTO.Messaging;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MessageTypeDetector {
     public boolean isStart(Messaging request) {
         if (request.getPostback() == null) {
@@ -97,4 +100,5 @@ public class MessageTypeDetector {
             }
         }
     }
+
 }

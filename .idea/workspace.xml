@@ -18,39 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="306" column="144" lean-forward="false" selection-start-line="306" selection-start-column="144" selection-end-line="306" selection-end-column="144" />
+            <state relative-caret-position="201">
+              <caret line="233" column="19" lean-forward="false" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1632#1652#1" expanded="true" />
-                <element signature="e#1702#1724#1" expanded="true" />
-                <element signature="e#1775#1796#1" expanded="true" />
-                <element signature="e#1846#1879#1" expanded="true" />
-                <element signature="e#1935#1971#1" expanded="true" />
-                <element signature="e#2030#2052#1" expanded="true" />
-                <element signature="e#2095#2120#1" expanded="true" />
-                <element signature="e#2167#2202#1" expanded="true" />
-                <element signature="e#2258#2285#1" expanded="true" />
-                <element signature="e#2333#2363#1" expanded="true" />
-                <element signature="e#2414#2439#1" expanded="true" />
-                <element signature="e#2492#2519#1" expanded="true" />
-                <element signature="e#2574#2599#1" expanded="true" />
-                <element signature="e#2645#2663#1" expanded="true" />
+                <element signature="e#1512#1532#1" expanded="true" />
+                <element signature="e#1582#1604#1" expanded="true" />
+                <element signature="e#1655#1676#1" expanded="true" />
+                <element signature="e#1726#1759#1" expanded="true" />
+                <element signature="e#1815#1851#1" expanded="true" />
+                <element signature="e#1910#1932#1" expanded="true" />
+                <element signature="e#1975#2000#1" expanded="true" />
+                <element signature="e#2047#2082#1" expanded="true" />
+                <element signature="e#2138#2165#1" expanded="true" />
+                <element signature="e#2213#2243#1" expanded="true" />
+                <element signature="e#2294#2319#1" expanded="true" />
+                <element signature="e#2372#2399#1" expanded="true" />
+                <element signature="e#2454#2479#1" expanded="true" />
+                <element signature="e#2525#2543#1" expanded="true" />
                 <element signature="method#processRequest#0;class#MessageService#0" expanded="false" />
                 <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-                <element signature="e#4676#4684#0" expanded="true" />
                 <element signature="method#callMarvelAPIForChatacter#0;class#MessageService#0" expanded="false" />
                 <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
                 <element signature="method#callMarvelAPIForComics#1;class#MessageService#0" expanded="false" />
                 <element signature="method#callDialogFlowApi#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleRatingTemplate#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleComicsTemplate#0;class#MessageService#0" expanded="false" />
+                <element signature="method#handleMoreComics#0;class#MessageService#0" expanded="false" />
                 <element signature="method#handleGreetingQuickReply#0;class#MessageService#0" expanded="false" />
                 <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
                 <element signature="method#getRatingQuickReply#0;class#MessageService#0" expanded="false" />
@@ -61,27 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarvelTemplateBuilder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java">
+      <file leaf-file-name="MessageTypeDetector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="176" column="55" lean-forward="true" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
+            <state relative-caret-position="285">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
-                <element signature="e#511#540#1" expanded="true" />
-                <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
-                <element signature="e#2120#2190#0" expanded="false" />
-                <element signature="method#buildGenericTemplateFromMarvelComicsResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#isStart#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isGetComics#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isImage#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isText#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isRate#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isHeroQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isRatingQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
+                <element signature="method#isMoreComics#0;class#MessageTypeDetector#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="52" column="33" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="52" selection-end-column="33" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,12 +156,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowRequest/DialogFlowRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Parameters.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/MessageTemplate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java" />
       </list>
     </option>
   </component>
@@ -240,6 +235,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Bot" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
@@ -400,10 +404,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154525000" />
+    <option name="totallyTimeSpent" value="160161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992126" sideWeight="0.511713" order="5" side_tool="true" content_ui="tabs" />
@@ -422,7 +427,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2992126" sideWeight="0.48828697" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25669292" sideWeight="0.48828697" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149607" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
@@ -471,26 +476,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java</url>
-          <line>176</line>
-          <properties />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Comics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/CollectedIssues.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -613,13 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/PostbackButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -915,14 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -939,11 +914,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/RequestDTO/Postback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/PostbackButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="28" column="376" lean-forward="true" selection-start-line="28" selection-start-column="376" selection-end-line="28" selection-end-column="376" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="88" column="51" lean-forward="false" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+        <state relative-caret-position="285">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#isStart#0;class#MessageTypeDetector#0" expanded="false" />
             <element signature="method#isGetComics#0;class#MessageTypeDetector#0" expanded="false" />
             <element signature="method#isImage#0;class#MessageTypeDetector#0" expanded="false" />
@@ -957,56 +957,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="180" column="10" lean-forward="true" selection-start-line="180" selection-start-column="10" selection-end-line="180" selection-end-column="10" />
+          <folding>
+            <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
+            <element signature="e#2120#2190#0" expanded="false" />
+            <element signature="method#buildGenericTemplateFromMarvelComicsResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="306" column="144" lean-forward="false" selection-start-line="306" selection-start-column="144" selection-end-line="306" selection-end-column="144" />
+        <state relative-caret-position="201">
+          <caret line="233" column="19" lean-forward="false" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1632#1652#1" expanded="true" />
-            <element signature="e#1702#1724#1" expanded="true" />
-            <element signature="e#1775#1796#1" expanded="true" />
-            <element signature="e#1846#1879#1" expanded="true" />
-            <element signature="e#1935#1971#1" expanded="true" />
-            <element signature="e#2030#2052#1" expanded="true" />
-            <element signature="e#2095#2120#1" expanded="true" />
-            <element signature="e#2167#2202#1" expanded="true" />
-            <element signature="e#2258#2285#1" expanded="true" />
-            <element signature="e#2333#2363#1" expanded="true" />
-            <element signature="e#2414#2439#1" expanded="true" />
-            <element signature="e#2492#2519#1" expanded="true" />
-            <element signature="e#2574#2599#1" expanded="true" />
-            <element signature="e#2645#2663#1" expanded="true" />
+            <element signature="e#1512#1532#1" expanded="true" />
+            <element signature="e#1582#1604#1" expanded="true" />
+            <element signature="e#1655#1676#1" expanded="true" />
+            <element signature="e#1726#1759#1" expanded="true" />
+            <element signature="e#1815#1851#1" expanded="true" />
+            <element signature="e#1910#1932#1" expanded="true" />
+            <element signature="e#1975#2000#1" expanded="true" />
+            <element signature="e#2047#2082#1" expanded="true" />
+            <element signature="e#2138#2165#1" expanded="true" />
+            <element signature="e#2213#2243#1" expanded="true" />
+            <element signature="e#2294#2319#1" expanded="true" />
+            <element signature="e#2372#2399#1" expanded="true" />
+            <element signature="e#2454#2479#1" expanded="true" />
+            <element signature="e#2525#2543#1" expanded="true" />
             <element signature="method#processRequest#0;class#MessageService#0" expanded="false" />
             <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-            <element signature="e#4676#4684#0" expanded="true" />
             <element signature="method#callMarvelAPIForChatacter#0;class#MessageService#0" expanded="false" />
             <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
             <element signature="method#callMarvelAPIForComics#1;class#MessageService#0" expanded="false" />
             <element signature="method#callDialogFlowApi#0;class#MessageService#0" expanded="false" />
             <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
             <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleTextMessage#0;class#MessageService#0" expanded="false" />
             <element signature="method#handleRatingTemplate#0;class#MessageService#0" expanded="false" />
             <element signature="method#handleComicsTemplate#0;class#MessageService#0" expanded="false" />
+            <element signature="method#handleMoreComics#0;class#MessageService#0" expanded="false" />
             <element signature="method#handleGreetingQuickReply#0;class#MessageService#0" expanded="false" />
             <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
             <element signature="method#getRatingQuickReply#0;class#MessageService#0" expanded="false" />
             <element signature="method#createHashForCallMarvelApi#0;class#MessageService#0" expanded="false" />
             <element signature="method#rateHero#0;class#MessageService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="176" column="55" lean-forward="true" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
-          <folding>
-            <element signature="e#511#540#1" expanded="true" />
-            <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
-            <element signature="e#2120#2190#0" expanded="false" />
-            <element signature="method#buildGenericTemplateFromMarvelComicsResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
           </folding>
         </state>
       </provider>
