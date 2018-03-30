@@ -101,4 +101,40 @@ public class MessageTypeDetector {
         }
     }
 
+    public boolean isHelp(Messaging request){
+        if (request.getPostback() == null) {
+            return false;
+        } else {
+            if (request.getPostback().getPayload() == null) {
+                return false;
+            } else {
+                return request.getPostback().getPayload().equals("HELP");
+            }
+        }
+    }
+
+    public boolean isTop(Messaging request){
+        if (request.getPostback() == null) {
+            return false;
+        } else {
+            if (request.getPostback().getPayload() == null) {
+                return false;
+            } else {
+                return request.getPostback().getPayload().equals("TOP");
+            }
+        }
+    }
+
+    public boolean isChangeComicsAmound(Messaging request){
+        if (request.getPostback() == null) {
+            return false;
+        } else {
+            if (request.getPostback().getPayload() == null) {
+                return false;
+            } else {
+                return request.getPostback().getPayload().equals("AMOUND");
+            }
+        }
+    }
+
 }

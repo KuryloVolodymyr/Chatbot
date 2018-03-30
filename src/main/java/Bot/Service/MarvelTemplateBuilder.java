@@ -126,7 +126,7 @@ public class MarvelTemplateBuilder {
         if (marvelComicsResponse.getData().getCount().equals(marvelComicsResponse.getData().getLimit())) {
             List<Button> moreButton = new ArrayList<>();
             moreButton.add(new PostbackButton("More comics", characterId + "/" + 0));
-            elements.add(new GenericElement("More comics", "", "", moreButton));
+            elements.add(new GenericElement("More comics", "", "http://iconshow.me/media/images/ui/ios7-icons/png/512/more-outline.png", moreButton));
         }
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);
@@ -179,7 +179,7 @@ public class MarvelTemplateBuilder {
         if (marvelComicsResponse.getData().getCount().equals(marvelComicsResponse.getData().getLimit())) {
             List<Button> moreButton = new ArrayList<>();
             moreButton.add(new PostbackButton("More comics", characterId + "/" + offset));
-            elements.add(new GenericElement("More comics", "", "", moreButton));
+            elements.add(new GenericElement("More comics", "", "http://iconshow.me/media/images/ui/ios7-icons/png/512/more-outline.png", moreButton));
         }
         GenericPayload payload = new GenericPayload(elements);
         Attachment attachment = new Attachment(payload);

@@ -5,12 +5,15 @@ import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
 import Bot.DTO.Elements.*;
 import Bot.DTO.MarvelDTO.*;
 import Bot.DTO.Message.QuickReplyMessage;
+import Bot.DTO.Recipient;
 import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.Template.*;
 import Bot.Domain.HeroesRatingEntity;
 import Bot.Domain.UserRequestEntity;
+import Bot.Domain.UserSettingsEntity;
 import Bot.Repository.HeroesRatingRepository;
 import Bot.Repository.UserRequestRepository;
+import Bot.Repository.UserSettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +29,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -39,6 +43,9 @@ public class MessageService {
 
     @Autowired
     private HeroesRatingRepository heroesRatingRepository;
+
+    @Autowired
+    private UserSettingsRepository userSettingsRepository;
 
     @Autowired
     private MarvelTemplateBuilder marvelTemplateBuilder;
@@ -88,28 +95,52 @@ public class MessageService {
     @Value("${responce.help}")
     private String helpMessage;
 
+    @Value("${responce.topHeroes}")
+    private String topHeroes;
+
+    @Value("${responce.settingsChanged}")
+    private String settingsChanged;
+
+
     public void processRequest(Messaging request) {
 
         long id = request.getSender().getId();
         MessageTemplate template = new TextMessageTemplate(id, noTemplateInitialized);
 
         if (!messageTypeDetector.isText(request)) {
+            System.out.println("in !text");
             if (messageTypeDetector.isImage(request)) {
+                System.out.println("is image");
                 template = handleImageMessage(request);
             } else if (messageTypeDetector.isStart(request)) {
+                System.out.println("Start");
                 template = handleGreeting(request);
+            } else if (messageTypeDetector.isHelp(request)) {
+                System.out.println("Help");
+                template = handleHelpTemplate(request);
+            } else if (messageTypeDetector.isTop(request)) {
+                System.out.println("Top");
+                template = handleTopTemplate(request);
+            } else if (messageTypeDetector.isChangeComicsAmound(request)) {
+                template = handleChangeComicsAtOnce(request);
             } else if (messageTypeDetector.isGetComics(request)) {
+                System.out.println("get comics");
                 template = handleComicsTemplate(request);
             } else if (messageTypeDetector.isMoreComics(request)) {
+                System.out.println("more comics");
                 template = handleMoreComics(request);
             } else if (messageTypeDetector.isRate(request)) {
+                System.out.println("rating");
                 template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
             }
         } else {
             if (messageTypeDetector.isQuickReply(request)) {
+                System.out.println("quick reply");
                 if (messageTypeDetector.isHeroQuickReply(request)) {
+                    System.out.println("hero quick reply");
                     template = handleGreetingQuickReply(request);
                 } else if (messageTypeDetector.isRatingQuickReply(request)) {
+                    System.out.println("reting quich reply");
                     rateHero(request);
                     template = handleRatingTemplate(request);
                 } else {
@@ -120,8 +151,11 @@ public class MessageService {
             }
         }
         try {
+            System.out.println("calling send Api OK");
             callSendAPI(template);
         } catch (HttpClientErrorException e) {
+
+            System.out.println("calling send Api Escepltion");
             callSendAPI(new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage));
         }
     }
@@ -168,9 +202,8 @@ public class MessageService {
         return marvelCharacterlResponse;
     }
 
-    private MarvelComicsResponce callMarvelAPIForComics(String characterId) throws HttpClientErrorException {
+    private MarvelComicsResponce callMarvelAPIForComics(String characterId, Long limit) throws HttpClientErrorException {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
-        String limit = "5";
 
         String hash = createHashForCallMarvelApi(ts);
 
@@ -179,9 +212,8 @@ public class MessageService {
 
     }
 
-    private MarvelComicsResponce callMarvelAPIForComics(String characterId, String offset) throws HttpClientErrorException {
+    private MarvelComicsResponce callMarvelAPIForComics(String characterId, Long limit, String offset) throws HttpClientErrorException {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
-        String limit = "5";
 
         String hash = createHashForCallMarvelApi(ts);
 
@@ -213,7 +245,11 @@ public class MessageService {
     }
 
     private MessageTemplate handleGreeting(Messaging request) {
-        return new QuickReplyTemplate(request.getSender().getId(), getHeroesForQuickReply(greeting));
+        Long senderPSID = request.getSender().getId();
+        if (userSettingsRepository.getBySenderPSID(senderPSID) == null) {
+            userSettingsRepository.save(new UserSettingsEntity(senderPSID));
+        }
+        return new QuickReplyTemplate(senderPSID, getHeroesForQuickReply(greeting));
     }
 
     private MessageTemplate handleTextMessage(Messaging request) {
@@ -272,9 +308,10 @@ public class MessageService {
 
     private MessageTemplate handleComicsTemplate(Messaging request) {
         MessageTemplate template;
+        Long limit = userSettingsRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
         try {
 
-            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload());
+            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(request.getPostback().getPayload(), limit);
             if (!marvelComicsResponce.getData().getResults().isEmpty()) {
                 template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);
             } else {
@@ -290,15 +327,16 @@ public class MessageService {
 
     private MessageTemplate handleMoreComics(Messaging request) {
         MessageTemplate template;
-        String characterId = request.getPostback().getPayload().split("/")[0];
-        System.out.println(request.getPostback().getPayload());
-        Long offsetLong = Long.parseLong(request.getPostback().getPayload().split("/")[1]);
-        System.out.println(request.getPostback().getPayload().split("/")[1]);
-        offsetLong += 5L;
-        String offset = offsetLong.toString();
-        try {
 
-            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(characterId, offset);
+        String characterId = request.getPostback().getPayload().split("/")[0];
+        Long offsetLong = Long.parseLong(request.getPostback().getPayload().split("/")[1]);
+
+        try {
+            Long limit = userSettingsRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
+            offsetLong += limit;
+            String offset = offsetLong.toString();
+
+            MarvelComicsResponce marvelComicsResponce = callMarvelAPIForComics(characterId, limit, offset);
             if (!marvelComicsResponce.getData().getResults().isEmpty()) {
                 template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce, offset, characterId);
             } else {
@@ -313,6 +351,7 @@ public class MessageService {
     }
 
     private MessageTemplate handleGreetingQuickReply(Messaging request) {
+
         MessageTemplate template;
         String characterName = request.getMessage().getText();
 
@@ -343,18 +382,39 @@ public class MessageService {
         return template;
     }
 
+    private MessageTemplate handleHelpTemplate(Messaging request) {
+        Long recepientId = request.getSender().getId();
+        return new TextMessageTemplate(recepientId, helpMessage);
+    }
+
+    private MessageTemplate handleTopTemplate(Messaging request) {
+        Long recepientId = request.getSender().getId();
+        return new QuickReplyTemplate(recepientId, getHeroesForQuickReply(topHeroes));
+    }
+
+    private MessageTemplate handleChangeComicsAtOnce(Messaging request) {
+        Long senderPSID = request.getSender().getId();
+        Long newComicsNumber = Long.parseLong(request.getPostback().getTitle());
+        UserSettingsEntity user = userSettingsRepository.getBySenderPSID(senderPSID);
+        user.setComicsGivenAtOnce(newComicsNumber);
+        userSettingsRepository.save(user);
+        return new TextMessageTemplate(senderPSID, settingsChanged);
+    }
+
     private QuickReplyMessage getHeroesForQuickReply(String text) {
+
         List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(new QuickReply("text", "Ant-Man", "hero"));
-        quickReplies.add(new QuickReply("text", "Iron Man", "hero"));
-        quickReplies.add(new QuickReply("text", "Hulk", "hero"));
-        quickReplies.add(new QuickReply("text", "Spider-Man", "hero"));
-        quickReplies.add(new QuickReply("text", "Sandman", "hero"));
-        quickReplies.add(new QuickReply("text", "Captain America", "hero"));
-        quickReplies.add(new QuickReply("text", "Thor", "hero"));
-        quickReplies.add(new QuickReply("text", "Vision", "hero"));
-        quickReplies.add(new QuickReply("text", "Starlord", "hero"));
-        quickReplies.add(new QuickReply("text", "Doctor Strange", "hero"));
+        Set<String> topHeroes = heroesRatingRepository.getTopHeroesForQuickReply();
+        for (String hero : topHeroes) {
+            System.out.println(hero);
+        }
+        topHeroes = chechTopHeroesSize(topHeroes, 0);
+        for (String s : topHeroes) {
+            quickReplies.add(new QuickReply("text", s, "hero"));
+            System.out.println(s);
+        }
+
+
         return new QuickReplyMessage(text, quickReplies);
     }
 
@@ -396,6 +456,7 @@ public class MessageService {
         String heroName = request.getMessage().getQuickReply().getPayload();
         Long senderPSID = request.getSender().getId();
         String rating = request.getMessage().getText();
+
         if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
             heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));
         } else {
@@ -407,6 +468,28 @@ public class MessageService {
         }
     }
 
+    private List<String> fillInHeroQuickReplyes() {
+        List<String> fillInHeroQuickReplyes = new ArrayList<>();
+        fillInHeroQuickReplyes.add("Iron Man");
+        fillInHeroQuickReplyes.add("Hulk");
+        fillInHeroQuickReplyes.add("Spider-Man");
+        fillInHeroQuickReplyes.add("Sandman");
+        fillInHeroQuickReplyes.add("Captain America");
+        fillInHeroQuickReplyes.add("Thor");
+        fillInHeroQuickReplyes.add("Vision");
+        fillInHeroQuickReplyes.add("Star-Lord");
+        fillInHeroQuickReplyes.add("Doctor Strange");
+        fillInHeroQuickReplyes.add("Deadpool");
+        return fillInHeroQuickReplyes;
+    }
 
+    private Set<String> chechTopHeroesSize(Set<String> topHeroes, Integer index) {
+        if (topHeroes.size() < 10) {
+            List<String> heroQuickReplyFillIns = fillInHeroQuickReplyes();
+            topHeroes.add(heroQuickReplyFillIns.get(index));
+            chechTopHeroesSize(topHeroes, index + 1);
+        }
+        return topHeroes;
+    }
 }
 

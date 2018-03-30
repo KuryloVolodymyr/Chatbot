@@ -2,8 +2,8 @@ package Bot.Domain;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "userRequest")
@@ -22,11 +22,15 @@ public class UserRequestEntity {
     @Column
     private Long senderPSID;
 
+    @Column
+    private Date date;
+
 
     public UserRequestEntity( String heroName, Long heroId, Long senderPSID){
         this.heroId = heroId;
         this.heroName = heroName;
         this.senderPSID = senderPSID;
+        this.date = new Date();
     }
 
     public UserRequestEntity(){}
