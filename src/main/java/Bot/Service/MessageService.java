@@ -268,6 +268,7 @@ public class MessageService {
             } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("dc")) {
                 return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
             } else {
+                //TODO rewrite NPE
                 String characterName = dialogFlowResponse.getResult().getParameters().getHeroName();
                 MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
 
