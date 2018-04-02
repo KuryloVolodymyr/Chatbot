@@ -6,6 +6,7 @@ public class Metadata {
     private String webhookForSlotFillingUsed;
     private Long webhookResponseTime;
     private String intentName;
+    private Boolean empty;
 
     public Metadata(String intentId, String webhookUsed, String webhookForSlotFillingUsed, Long webhookResponseTime, String intentName){
         this.intentId = intentId;
@@ -13,10 +14,11 @@ public class Metadata {
         this.webhookForSlotFillingUsed = webhookForSlotFillingUsed;
         this.webhookResponseTime = webhookResponseTime;
         this.intentName = intentName;
+        this.empty = false;
     }
 
     public Metadata(){
-        super();
+        this.empty = true;
     }
 
     public String getIntentId() {
@@ -50,6 +52,11 @@ public class Metadata {
     public void setWebhookForSlotFillingUsed(String webhookForSlotFillingUsed) {
         this.webhookForSlotFillingUsed = webhookForSlotFillingUsed;
     }
+
+    public Boolean isEmpty(){
+        return empty;
+    }
+
 
     public void setWebhookUsed(String webhookUsed) {
         this.webhookUsed = webhookUsed;

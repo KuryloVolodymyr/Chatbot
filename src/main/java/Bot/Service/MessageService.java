@@ -101,6 +101,24 @@ public class MessageService {
     @Value("${responce.settingsChanged}")
     private String settingsChanged;
 
+    @Value("${url.marvel.charactersByName}")
+    private String marvelCharactersByNameURL;
+
+    @Value("${url.marvel.charactersNameStartsWith}")
+    private String marvelCharactersStartsWith;
+
+    @Value("${url.marver.comics}")
+    private String marvelComics;
+
+    @Value("${url.marvel.comicsWithOffset}")
+    private String marvelComicsWithOffset;
+
+    @Value("${url.messenger.sendAPIURL}")
+    private String sendAPIURL;
+
+    @Value("${url.dialogflow}")
+    private String dialogFlowUrl;
+
 
     public void processRequest(Messaging request) {
 
@@ -165,8 +183,7 @@ public class MessageService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<>(message, headers);
 
-        String responceFromSendAPI = restTemplate.postForObject("https://graph.facebook.com/v2.6/me/messages?access_token={token}",
-                entity, String.class, pageAccessToken);
+        String responceFromSendAPI = restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
         System.out.println(responceFromSendAPI);
 
         System.out.println("OK");
@@ -180,8 +197,8 @@ public class MessageService {
 
         String hash = createHashForCallMarvelApi(ts);
 
-        marvelCharacterlResponse = restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters?name={name}&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
-                MarvelCharacterlResponse.class, characterName, limit, ts, marvelPublicKey, hash);
+        marvelCharacterlResponse = restTemplate.getForObject(marvelCharactersByNameURL, MarvelCharacterlResponse.class,
+                characterName, limit, ts, marvelPublicKey, hash);
 
         System.out.println("Marvel called successfully 1st time");
         if (marvelCharacterlResponse.getData().getResults().isEmpty()) {
@@ -190,7 +207,7 @@ public class MessageService {
             String newHash = createHashForCallMarvelApi(newTs);
             System.out.println("Calling Marvel 2nd time");
             try {
-                marvelCharacterlResponse = restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters?nameStartsWith={name}&limit={limit}&ts={new}&apikey={key}&hash={newhash}",
+                marvelCharacterlResponse = restTemplate.getForObject(marvelCharactersStartsWith,
                         MarvelCharacterlResponse.class, characterName, limit, newTs, marvelPublicKey, newHash);
                 System.out.println("2nd call is successfull");
             } catch (HttpClientErrorException e) {
@@ -207,7 +224,7 @@ public class MessageService {
 
         String hash = createHashForCallMarvelApi(ts);
 
-        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?orderBy=-focDate&limit={limit}&ts={ts}&apikey={key}&hash={hash}",
+        return restTemplate.getForObject(marvelComics,
                 MarvelComicsResponce.class, characterId, limit, ts, marvelPublicKey, hash);
 
     }
@@ -223,12 +240,11 @@ public class MessageService {
     }
 
     private DialogFlowResponse callDialogFlowApi(DialogFlowRequest dialogFlowRequest) throws HttpClientErrorException {
-        String url = "https://api.dialogflow.com/v1/query?v=20150910";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + dialogFlowClientToken);
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<>(dialogFlowRequest, headers);
-        return restTemplate.postForObject(url, entity, DialogFlowResponse.class);
+        return restTemplate.postForObject(dialogFlowUrl, entity, DialogFlowResponse.class);
     }
 
     private MessageTemplate handleImageMessage(Messaging request) {
@@ -259,40 +275,48 @@ public class MessageService {
         try {
             DialogFlowRequest dialogFlowRequest = new DialogFlowRequest(textMessage);
 
-
             DialogFlowResponse dialogFlowResponse = callDialogFlowApi(dialogFlowRequest);
-            if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("thankYou")) {
-                return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
-            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("help")) {
-                return new TextMessageTemplate(request.getSender().getId(), helpMessage);
-            } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("dc")) {
-                return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
+
+
+            System.out.println(dialogFlowResponse.getResult().getMetadata().isEmpty());
+
+            if (dialogFlowResponse.getResult().getMetadata().getIntentName() == null) {
+                messageTemplate = new TextMessageTemplate(request.getSender().getId(), cantFindHeroName);
             } else {
-                //TODO rewrite NPE
-                String characterName = dialogFlowResponse.getResult().getParameters().getHeroName();
-                MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
-
-                if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
-                    Long senderPSID = request.getSender().getId();
-
-                    //Saving Responce to database
-                    for (CharacterResults results : marvelCharacterlResponse.getData().getResults()) {
-                        String character = results.getName();
-                        Long characterId = results.getId();
-                        userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
-                    }
-                    messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
-
+                if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("thankYou")) {
+                    return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
+                } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("help")) {
+                    return new TextMessageTemplate(request.getSender().getId(), helpMessage);
+                } else if (dialogFlowResponse.getResult().getMetadata().getIntentName().equals("dc")) {
+                    return new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
                 } else {
-                    messageTemplate = new TextMessageTemplate(request.getSender().getId(),
-                            heroNotFound);
+                    if (dialogFlowResponse.getResult().getParameters() == null) {
+                        System.out.println("Can`t find hero");
+                        messageTemplate = new TextMessageTemplate(request.getSender().getId(), cantFindHeroName);
+                    } else {
+                        String characterName = dialogFlowResponse.getResult().getParameters().getHeroName();
+                        MarvelCharacterlResponse marvelCharacterlResponse = callMarvelAPIForChatacter(characterName);
+
+                        if (!marvelCharacterlResponse.getData().getResults().isEmpty()) {
+                            Long senderPSID = request.getSender().getId();
+
+                            //Saving Responce to database
+                            for (CharacterResults results : marvelCharacterlResponse.getData().getResults()) {
+                                String character = results.getName();
+                                Long characterId = results.getId();
+                                userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
+                            }
+                            messageTemplate = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponce(request, marvelCharacterlResponse);
+
+                        } else {
+                            messageTemplate = new TextMessageTemplate(request.getSender().getId(),
+                                    heroNotFound);
+                        }
+                    }
                 }
             }
 
-        } catch (NullPointerException e) {
-            System.out.println("NPE");
-            System.out.println(e.getLocalizedMessage());
-            messageTemplate = new TextMessageTemplate(request.getSender().getId(), cantFindHeroName);
+
         } catch (HttpClientErrorException e) {
             System.out.println("Http exception");
             System.out.println(e.getLocalizedMessage());
