@@ -24,9 +24,6 @@ public class ApiCaller {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private MessageService messageService;
-
     @Value("${url.marvel.charactersByName}")
     private String marvelCharactersByNameURL;
 
