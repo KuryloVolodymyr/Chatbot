@@ -18,6 +18,9 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 
 public class ApiCaller {
+
+    private static final String numberOfCharactersPerRequest = "5";
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -57,44 +60,29 @@ public class ApiCaller {
     @Value("${dialogFlow.developerAccessToken}")
     private String dialogFlowDeveloperToken;
 
+
     public void callSendAPI(MessageTemplate message) throws HttpClientErrorException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<>(message, headers);
 
-        String responceFromSendAPI = restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
-        System.out.println(responceFromSendAPI);
-
-        System.out.println("OK");
+        restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
     }
 
-    public MarvelCharacterlResponse callMarvelAPIForChatacter(String characterName) throws HttpClientErrorException {
-        MarvelCharacterlResponse marvelCharacterlResponse;
+    public MarvelCharacterlResponse callMarvelAPIForCharacter(String characterName) throws HttpClientErrorException {
 
+        String limit = numberOfCharactersPerRequest;
+        MarvelCharacterlResponse marvelCharacterlResponse;
         String ts = new Timestamp(System.currentTimeMillis()).toString();
-        String limit = "5";
 
         String hash = createHashForCallMarvelApi(ts);
 
         marvelCharacterlResponse = restTemplate.getForObject(marvelCharactersByNameURL, MarvelCharacterlResponse.class,
                 characterName, limit, ts, marvelPublicKey, hash);
 
-        System.out.println("Marvel called successfully 1st time");
         if (marvelCharacterlResponse.getData().getResults().isEmpty()) {
-            System.out.println("Is empty");
-            String newTs = new Timestamp(System.currentTimeMillis()).toString();
-            String newHash = createHashForCallMarvelApi(newTs);
-            System.out.println("Calling Marvel 2nd time");
-            try {
-                marvelCharacterlResponse = restTemplate.getForObject(marvelCharactersStartsWith,
-                        MarvelCharacterlResponse.class, characterName, limit, newTs, marvelPublicKey, newHash);
-                System.out.println("2nd call is successfull");
-            } catch (HttpClientErrorException e) {
-                System.out.println(e.getLocalizedMessage());
-            }
-
+            marvelCharacterlResponse = callMarvelAPIForChatacterNameStartsWith(characterName, limit);
         }
-        System.out.println("Responce");
         return marvelCharacterlResponse;
     }
 
@@ -113,8 +101,7 @@ public class ApiCaller {
 
         String hash = createHashForCallMarvelApi(ts);
 
-        return restTemplate.getForObject("https://gateway.marvel.com:443/v1/public/characters/{characterId}/comics?&limit={limit}&offset={offset}&ts={ts}&apikey={key}&hash={hash}",
-                MarvelComicsResponce.class, characterId, limit, offset, ts, marvelPublicKey, hash);
+        return restTemplate.getForObject(marvelComicsWithOffset, MarvelComicsResponce.class, characterId, limit, offset, ts, marvelPublicKey, hash);
 
     }
 
@@ -126,25 +113,27 @@ public class ApiCaller {
         return restTemplate.postForObject(dialogFlowUrl, entity, DialogFlowResponse.class);
     }
 
+    private MarvelCharacterlResponse callMarvelAPIForChatacterNameStartsWith(String characterName, String limit) {
+
+        String newTs = new Timestamp(System.currentTimeMillis()).toString();
+        String newHash = createHashForCallMarvelApi(newTs);
+
+        return restTemplate.getForObject(marvelCharactersStartsWith,
+                MarvelCharacterlResponse.class, characterName, limit, newTs, marvelPublicKey, newHash);
+    }
+
     private String createHashForCallMarvelApi(String ts) {
         String hash = "hash";
         try {
-
-
             MessageDigest md = MessageDigest.getInstance("MD5");
-
             String toHash = ts + marvelPrivateKey + marvelPublicKey;
-
             md.update(toHash.getBytes());
-
             byte byteData[] = md.digest();
-
 
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < byteData.length; i++) {
                 sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
             }
-
             hash = sb.toString();
         } catch (NoSuchAlgorithmException e) {
             System.out.println("MD5 Exception");

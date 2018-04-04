@@ -24,9 +24,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -35,6 +32,11 @@ import java.util.Set;
 @Service
 public class MessageService {
 
+    private static final int maxCharacterNumberAtOne = 10;
+
+    private static final String like = "\uD83D\uDC4D";
+
+    private static final String dislike = "\uD83D\uDC4E";
 
 
     @Autowired
@@ -57,92 +59,52 @@ public class MessageService {
 
 
     public void processRequest(Messaging request) {
-
-        long id = request.getSender().getId();
-        MessageTemplate template = new TextMessageTemplate(id, noTemplateInitialized);
+        MessageTemplate template;
 
         if (!messageTypeDetector.isText(request)) {
-            System.out.println("in !text");
-            if (messageTypeDetector.isImage(request)) {
-                System.out.println("is image");
-                template = messageHandler.handleImageMessage(request);
-            } else if (messageTypeDetector.isStart(request)) {
-                System.out.println("Start");
-                template = messageHandler.handleGreeting(request);
-            } else if (messageTypeDetector.isHelp(request)) {
-                System.out.println("Help");
-                template = messageHandler.handleHelpTemplate(request);
-            } else if (messageTypeDetector.isTop(request)) {
-                System.out.println("Top");
-                template = messageHandler.handleTopTemplate(request);
-            } else if (messageTypeDetector.isChangeComicsAmound(request)) {
-                template = messageHandler.handleChangeComicsAtOnce(request);
-            } else if (messageTypeDetector.isGetComics(request)) {
-                System.out.println("get comics");
-                template = messageHandler.handleComicsTemplate(request);
-            } else if (messageTypeDetector.isMoreComics(request)) {
-                System.out.println("more comics");
-                template = messageHandler.handleMoreComics(request);
-            } else if (messageTypeDetector.isRate(request)) {
-                System.out.println("rating");
-                template = new QuickReplyTemplate(id, getRatingQuickReply(request.getPostback().getPayload()));
-            }
+            template = messageHandler.handleNonTextMessage(request);
         } else {
-            if (messageTypeDetector.isQuickReply(request)) {
-                System.out.println("quick reply");
-                if (messageTypeDetector.isHeroQuickReply(request)) {
-                    System.out.println("hero quick reply");
-                    template = messageHandler.handleGreetingQuickReply(request);
-                } else if (messageTypeDetector.isRatingQuickReply(request)) {
-                    System.out.println("reting quich reply");
-                    rateHero(request);
-                    template = messageHandler.handleRatingTemplate(request);
-                } else {
-                    System.out.println("Quick reply not trigered");
-                }
-            } else {
-                template = messageHandler.handleTextMessage(request);
-            }
+            template = messageHandler.handleMessageWithText(request);
         }
-        try {
-            System.out.println("calling send Api OK");
-            apiCaller.callSendAPI(template);
-        } catch (HttpClientErrorException e) {
+        apiCaller.callSendAPI(template);
 
-            System.out.println("calling send Api Escepltion");
-            apiCaller.callSendAPI(new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage));
-        }
     }
 
     public QuickReplyMessage getHeroesForQuickReply(String text) {
 
+        //Getting top rated heroes from database, and adding them into set of topHeroes
+        //if there are less heroes than required in MaxHeroNumber filling in with hardcoded set of heroes
+
         List<QuickReply> quickReplies = new ArrayList<>();
         Set<String> topHeroes = heroesRatingRepository.getTopHeroesForQuickReply();
         for (String hero : topHeroes) {
-            System.out.println(hero);
         }
         topHeroes = chechTopHeroesSize(topHeroes, 0);
         for (String s : topHeroes) {
             quickReplies.add(new QuickReply("text", s, "hero"));
-            System.out.println(s);
         }
 
 
         return new QuickReplyMessage(text, quickReplies);
     }
 
-    private QuickReplyMessage getRatingQuickReply(String id) {
+    public QuickReplyMessage getRatingQuickReply(String id) {
+        //Sending quick reply message with like and dislike buttons
         String ratingMessage = "What do you think about this hero?";
         List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(new QuickReply("text", "\uD83D\uDC4D", id));
-        quickReplies.add(new QuickReply("text", "\uD83D\uDC4E", id));
+        quickReplies.add(new QuickReply("text", like, id));
+        quickReplies.add(new QuickReply("text", dislike, id));
         return new QuickReplyMessage(ratingMessage, quickReplies);
     }
 
-    private void rateHero(Messaging request) {
+    public void rateHero(Messaging request) {
+        //Hero Name, Sender ID , And hero rating are saving to database
+        //If user didn't rate hero before, new rating is created,
+        //Otherwise rating is rewritten
+
         String heroName = request.getMessage().getQuickReply().getPayload();
         Long senderPSID = request.getSender().getId();
-        String rating = request.getMessage().getText();
+        Boolean rating = request.getMessage().getText().equals(like);
 
         if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
             heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));
@@ -156,6 +118,7 @@ public class MessageService {
     }
 
     private List<String> fillInHeroQuickReplyes() {
+        //Hardcoded Heroes for Quick reply if rating has less than MaxNumber of heroes
         List<String> fillInHeroQuickReplyes = new ArrayList<>();
         fillInHeroQuickReplyes.add("Iron Man");
         fillInHeroQuickReplyes.add("Hulk");
@@ -171,10 +134,11 @@ public class MessageService {
     }
 
     private Set<String> chechTopHeroesSize(Set<String> topHeroes, Integer index) {
-        if (topHeroes.size() < 10) {
+        //checking if there are enough heroes to build quick reply message
+        if (topHeroes.size() < maxCharacterNumberAtOne) {
             List<String> heroQuickReplyFillIns = fillInHeroQuickReplyes();
             topHeroes.add(heroQuickReplyFillIns.get(index));
-            chechTopHeroesSize(topHeroes, index + 1);
+            chechTopHeroesSize(topHeroes, ++index);
         }
         return topHeroes;
     }

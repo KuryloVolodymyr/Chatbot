@@ -41,8 +41,8 @@ public class MainController {
     public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") String token,
                                                 @RequestParam("hub.challenge") String challenge,
                                                 @RequestParam("hub.mode") String mode) {
-        System.out.println(pageAccessToken);
-        System.out.println(pageAccessToken.equals(token));
+        System.out.println(verifyToken);
+        System.out.println(verifyToken.equals(token));
         System.out.println("Challenge " + challenge);
         return new ResponseEntity<>(challenge, HttpStatus.OK);
     }
@@ -51,7 +51,7 @@ public class MainController {
     public ResponseEntity<Void> conversation(@RequestBody RequestHandler  data) {
 
         System.out.println(data);
-//
+
         Messaging messageContent = data.getEntry().get(0).getMessaging().get(0);
 
         messageService.processRequest(messageContent);
