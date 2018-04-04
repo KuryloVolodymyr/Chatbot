@@ -163,6 +163,7 @@ public class MessageHandler {
         MessageTemplate template;
         Long limit = userSettingsRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
 
+        System.out.println("in handle comics");
         MarvelComicsResponce marvelComicsResponce = apiCaller.callMarvelAPIForComics(request.getPostback().getPayload(), limit);
         if (!marvelComicsResponce.getData().getResults().isEmpty()) {
             template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponce);

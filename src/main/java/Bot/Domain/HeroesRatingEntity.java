@@ -1,12 +1,9 @@
 package Bot.Domain;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "heroesRating")
-@EntityListeners(AuditingEntityListener.class)
 public class HeroesRatingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
