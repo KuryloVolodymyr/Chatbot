@@ -38,9 +38,11 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") final String token,
-                                                @RequestParam("hub.challenge") final String challenge,
-                                                @RequestParam("hub.mode") final String mode) {
+    public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") String token,
+                                                @RequestParam("hub.challenge") String challenge,
+                                                @RequestParam("hub.mode") String mode) {
+        System.out.println(pageAccessToken);
+        System.out.println(pageAccessToken.equals(token));
         System.out.println("Challenge " + challenge);
         return new ResponseEntity<>(challenge, HttpStatus.OK);
     }

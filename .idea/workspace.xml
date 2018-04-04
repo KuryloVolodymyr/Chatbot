@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa890e84-0fbd-43bb-879a-3af2a07beef5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/ApiCaller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Bot/Application.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,49 +25,11 @@
       <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="310" column="28" lean-forward="true" selection-start-line="310" selection-start-column="28" selection-end-line="313" selection-end-column="25" />
+            <state relative-caret-position="102">
+              <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
               <folding>
-                <element signature="e#1719#1739#1" expanded="true" />
-                <element signature="e#1789#1811#1" expanded="true" />
-                <element signature="e#1862#1883#1" expanded="true" />
-                <element signature="e#1933#1966#1" expanded="true" />
-                <element signature="e#2022#2058#1" expanded="true" />
-                <element signature="e#2117#2139#1" expanded="true" />
-                <element signature="e#2182#2207#1" expanded="true" />
-                <element signature="e#2254#2289#1" expanded="true" />
-                <element signature="e#2345#2372#1" expanded="true" />
-                <element signature="e#2420#2450#1" expanded="true" />
-                <element signature="e#2501#2526#1" expanded="true" />
-                <element signature="e#2579#2606#1" expanded="true" />
-                <element signature="e#2661#2686#1" expanded="true" />
-                <element signature="e#2732#2750#1" expanded="true" />
-                <element signature="e#2796#2819#1" expanded="true" />
-                <element signature="e#2863#2892#1" expanded="true" />
-                <element signature="e#2942#2974#1" expanded="true" />
-                <element signature="e#3034#3074#1" expanded="true" />
-                <element signature="e#3135#3157#1" expanded="true" />
-                <element signature="e#3204#3236#1" expanded="true" />
-                <element signature="e#3293#3322#1" expanded="true" />
-                <element signature="e#3367#3386#1" expanded="true" />
-                <element signature="method#processRequest#0;class#MessageService#0" expanded="false" />
-                <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-                <element signature="method#callMarvelAPIForChatacter#0;class#MessageService#0" expanded="false" />
-                <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
-                <element signature="method#callMarvelAPIForComics#1;class#MessageService#0" expanded="false" />
-                <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleRatingTemplate#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleComicsTemplate#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleMoreComics#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleGreetingQuickReply#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleHelpTemplate#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleTopTemplate#0;class#MessageService#0" expanded="false" />
-                <element signature="method#handleChangeComicsAtOnce#0;class#MessageService#0" expanded="false" />
-                <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
+                <element signature="imports" expanded="true" />
                 <element signature="method#getRatingQuickReply#0;class#MessageService#0" expanded="false" />
-                <element signature="method#createHashForCallMarvelApi#0;class#MessageService#0" expanded="false" />
-                <element signature="method#rateHero#0;class#MessageService#0" expanded="false" />
                 <element signature="method#fillInHeroQuickReplyes#0;class#MessageService#0" expanded="false" />
                 <element signature="method#chechTopHeroesSize#0;class#MessageService#0" expanded="false" />
               </folding>
@@ -71,40 +37,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Metadata.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java">
+      <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-              <folding>
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#741#742#0" expanded="true" />
-                <element signature="e#1506#1507#0" expanded="true" />
-                <element signature="e#1534#1535#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeroesRatingRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/HeroesRatingRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1522409363275" expanded="true" signature="469:625" ph="select heroe... heroes_rating" />
+                <element signature="method#handleImageMessage#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#handleTextMessage#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#handleRatingTemplate#0;class#MessageHandler#0" expanded="false" />
+                <element signature="method#handleComicsTemplate#0;class#MessageHandler#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -112,33 +56,19 @@
       <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="5" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageTypeDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#isStart#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isGetComics#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isImage#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isText#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isRate#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isHeroQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isRatingQuickReply#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isMoreComics#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isHelp#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isTop#0;class#MessageTypeDetector#0" expanded="false" />
-                <element signature="method#isChangeComicsAmound#0;class#MessageTypeDetector#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,8 +79,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -162,6 +92,7 @@
       <find>postForO</find>
       <find>catch()</find>
       <find>/</find>
+      <find>repository</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,8 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Message/GenericMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/GenericMessageTemplate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericPayload.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Elements/GenericElement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Thumbnail.java" />
@@ -213,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Status.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowRequest/DialogFlowRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Parameters.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/Template/MessageTemplate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Domain/UserRequestEntity.java" />
@@ -222,9 +150,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Domain/UserSettingsEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Repository/UserSettingsRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/ApiCaller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java" />
       </list>
     </option>
@@ -263,83 +194,53 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Bot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="DTO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="DTO" type="462c0819:PsiDirectoryNode" />
-              <item name="DialogFlowDTO" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="DTO" type="462c0819:PsiDirectoryNode" />
-              <item name="DialogFlowDTO" type="462c0819:PsiDirectoryNode" />
-              <item name="DialogFlowResponse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Bot" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -347,8 +248,8 @@
               <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Chatbot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chatbot" type="462c0819:PsiDirectoryNode" />
+              <item name="MarvelBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarvelBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -357,8 +258,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,7 +291,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="Bot.Application" />
+      <module name="Chatbot" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -432,18 +339,18 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="Bot.Application" />
-      <module name="Chatbot" />
-      <envs />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -471,12 +378,6 @@
       <envs />
       <properties />
       <listeners />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <recent_temporary>
       <list size="1">
@@ -506,11 +407,13 @@
       <workItem from="1522395092054" duration="19268000" />
       <workItem from="1522419459832" duration="45000" />
       <workItem from="1522652667498" duration="3391000" />
+      <workItem from="1522676179695" duration="325000" />
+      <workItem from="1522832140968" duration="2725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183050000" />
+    <option name="totallyTimeSpent" value="186100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -532,13 +435,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2990196" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2992126" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149607" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22692889" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33385828" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -546,7 +450,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33385828" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,25 +460,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Creator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -618,13 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="124" column="47" lean-forward="false" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Character.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/MarvelDTO/ComicsResults.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -716,13 +599,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/http/MediaType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/http/MediaType.class" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -794,20 +671,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestOperations.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="202" column="57" lean-forward="false" selection-start-line="202" selection-start-column="57" selection-end-line="202" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestOperations.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/OriginalRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -819,17 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#789#790#0" expanded="false" />
-            <element signature="e#837#838#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,49 +756,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/HeroesRatingRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="method#buildGenericTemplateFromMarvelCharacterResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
-            <element signature="e#2120#2190#0" expanded="false" />
-            <element signature="method#buildGenericTemplateFromMarvelComicsResponce#0;class#MarvelTemplateBuilder#0" expanded="false" />
-            <element signature="method#buildGenericTemplateFromMarvelComicsResponce#1;class#MarvelTemplateBuilder#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Repository/HeroesRatingRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1522409363275" expanded="true" signature="469:625" ph="select heroe... heroes_rating" />
+            <element signature="e#708#709#0" expanded="false" />
+            <element signature="e#741#742#0" expanded="false" />
+            <element signature="e#1506#1507#0" expanded="false" />
+            <element signature="e#1534#1535#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageTypeDetector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="510">
           <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -964,64 +801,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/DTO/DialogFlowDTO/DialogFlowResponse/Metadata.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MarvelTemplateBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/ApiCaller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <caret line="103" column="22" lean-forward="false" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
           <folding>
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#1506#1507#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#callDialogFlowApi#0;class#ApiCaller#0" expanded="false" />
+            <element signature="method#createHashForCallMarvelApi#0;class#ApiCaller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="42" column="84" lean-forward="true" selection-start-line="42" selection-start-column="84" selection-end-line="42" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#handleImageMessage#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#handleTextMessage#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#handleRatingTemplate#0;class#MessageHandler#0" expanded="false" />
+            <element signature="method#handleComicsTemplate#0;class#MessageHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Bot/Service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="310" column="28" lean-forward="true" selection-start-line="310" selection-start-column="28" selection-end-line="313" selection-end-column="25" />
+        <state relative-caret-position="102">
+          <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding>
-            <element signature="e#1719#1739#1" expanded="true" />
-            <element signature="e#1789#1811#1" expanded="true" />
-            <element signature="e#1862#1883#1" expanded="true" />
-            <element signature="e#1933#1966#1" expanded="true" />
-            <element signature="e#2022#2058#1" expanded="true" />
-            <element signature="e#2117#2139#1" expanded="true" />
-            <element signature="e#2182#2207#1" expanded="true" />
-            <element signature="e#2254#2289#1" expanded="true" />
-            <element signature="e#2345#2372#1" expanded="true" />
-            <element signature="e#2420#2450#1" expanded="true" />
-            <element signature="e#2501#2526#1" expanded="true" />
-            <element signature="e#2579#2606#1" expanded="true" />
-            <element signature="e#2661#2686#1" expanded="true" />
-            <element signature="e#2732#2750#1" expanded="true" />
-            <element signature="e#2796#2819#1" expanded="true" />
-            <element signature="e#2863#2892#1" expanded="true" />
-            <element signature="e#2942#2974#1" expanded="true" />
-            <element signature="e#3034#3074#1" expanded="true" />
-            <element signature="e#3135#3157#1" expanded="true" />
-            <element signature="e#3204#3236#1" expanded="true" />
-            <element signature="e#3293#3322#1" expanded="true" />
-            <element signature="e#3367#3386#1" expanded="true" />
-            <element signature="method#processRequest#0;class#MessageService#0" expanded="false" />
-            <element signature="method#callSendAPI#0;class#MessageService#0" expanded="false" />
-            <element signature="method#callMarvelAPIForChatacter#0;class#MessageService#0" expanded="false" />
-            <element signature="method#callMarvelAPIForComics#0;class#MessageService#0" expanded="false" />
-            <element signature="method#callMarvelAPIForComics#1;class#MessageService#0" expanded="false" />
-            <element signature="method#handleImageMessage#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleGreeting#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleRatingTemplate#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleComicsTemplate#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleMoreComics#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleGreetingQuickReply#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleHelpTemplate#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleTopTemplate#0;class#MessageService#0" expanded="false" />
-            <element signature="method#handleChangeComicsAtOnce#0;class#MessageService#0" expanded="false" />
-            <element signature="method#getHeroesForQuickReply#0;class#MessageService#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#getRatingQuickReply#0;class#MessageService#0" expanded="false" />
-            <element signature="method#createHashForCallMarvelApi#0;class#MessageService#0" expanded="false" />
-            <element signature="method#rateHero#0;class#MessageService#0" expanded="false" />
             <element signature="method#fillInHeroQuickReplyes#0;class#MessageService#0" expanded="false" />
             <element signature="method#chechTopHeroesSize#0;class#MessageService#0" expanded="false" />
           </folding>

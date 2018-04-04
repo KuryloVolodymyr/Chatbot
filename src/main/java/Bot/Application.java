@@ -1,6 +1,8 @@
 package Bot;
 
+import Bot.Service.ApiCaller;
 import Bot.Service.MarvelTemplateBuilder;
+import Bot.Service.MessageHandler;
 import Bot.Service.MessageTypeDetector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +28,16 @@ public class Application {
     @Bean
     public MessageTypeDetector messageTypeDetector(){
         return new MessageTypeDetector();
+    }
+
+    @Bean
+    public MessageHandler messageHandler(){
+        return new MessageHandler();
+    }
+
+    @Bean
+    public ApiCaller apiCaller(){
+        return new ApiCaller();
     }
 
     public static void main(String[] args) {
