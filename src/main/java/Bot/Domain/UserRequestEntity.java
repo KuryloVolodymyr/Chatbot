@@ -19,15 +19,11 @@ public class UserRequestEntity {
     @Column
     private Long senderPSID;
 
-    @Column
-    private LocalDateTime date;
-
 
     public UserRequestEntity( String heroName, Long heroId, Long senderPSID){
         this.heroId = heroId;
         this.heroName = heroName;
         this.senderPSID = senderPSID;
-        this.date = LocalDateTime.now();
     }
 
     public UserRequestEntity(){}
