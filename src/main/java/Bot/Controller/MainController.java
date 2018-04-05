@@ -54,6 +54,7 @@ public class MainController {
         Messaging messageContent = data.getEntry().get(0).getMessaging().get(0);
 
         messageService.processRequest(messageContent);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

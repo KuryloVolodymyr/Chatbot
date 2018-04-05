@@ -19,23 +19,22 @@ import org.springframework.beans.factory.annotation.Value;
 public class MessageHandler {
 
     @Autowired
-    MessageService messageService;
-
-
-    @Autowired
-    ApiCaller apiCaller;
+    private MessageService messageService;
 
     @Autowired
-    MarvelTemplateBuilder marvelTemplateBuilder;
+    private ApiCaller apiCaller;
+
+    @Autowired
+    private MarvelTemplateBuilder marvelTemplateBuilder;
 
     @Autowired
     private UserRequestRepository userRequestRepository;
 
     @Autowired
-    UserSettingsRepository userSettingsRepository;
+    private UserSettingsRepository userSettingsRepository;
 
     @Autowired
-    MessageTypeDetector messageTypeDetector;
+    private MessageTypeDetector messageTypeDetector;
 
 
     @Value("${responce.greeting}")

@@ -93,9 +93,11 @@ public class MessageService {
     public QuickReplyMessage getRatingQuickReply(String id) {
         //Sending quick reply message with like and dislike buttons
         String ratingMessage = "What do you think about this hero?";
+        Long likes = heroesRatingRepository.getLikesForHero(id);
+        Long dislikes = heroesRatingRepository.getDisLikesForHero(id);
         List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(new QuickReply("text", like, id));
-        quickReplies.add(new QuickReply("text", dislike, id));
+        quickReplies.add(new QuickReply("text", like+" "+likes, id));
+        quickReplies.add(new QuickReply("text", dislike+" "+ dislikes, id));
         return new QuickReplyMessage(ratingMessage, quickReplies);
     }
 
@@ -106,7 +108,7 @@ public class MessageService {
 
         String heroName = request.getMessage().getQuickReply().getPayload();
         Long senderPSID = request.getSender().getId();
-        Boolean rating = request.getMessage().getText().equals(like);
+        Boolean rating = request.getMessage().getText().startsWith(like);
 
         if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
             heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));

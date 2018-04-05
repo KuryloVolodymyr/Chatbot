@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageTypeDetector {
+
+    private static final String like = "\uD83D\uDC4D";
+
+    private static final String dislike = "\uD83D\uDC4E";
+
     public boolean isStart(Messaging request) {
         if (request.getPostback() == null) {
             return false;
@@ -86,7 +91,7 @@ public class MessageTypeDetector {
 
     public boolean isRatingQuickReply(Messaging request) {
         String reply = request.getMessage().getText();
-        return reply.equals("\uD83D\uDC4D") || reply.equals("\uD83D\uDC4E");
+        return reply.startsWith(like) || reply.startsWith(dislike);
     }
 
     public boolean isMoreComics(Messaging request) {
