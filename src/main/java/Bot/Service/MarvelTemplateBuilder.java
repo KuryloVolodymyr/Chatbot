@@ -21,11 +21,11 @@ public class MarvelTemplateBuilder {
     @Value("${marvel.imageNotAvailable}")
     private String imageNotAvailable;
 
-    public MessageTemplate buildGenericTemplateFromMarvelCharacterResponce(Messaging request, MarvelCharacterlResponse marvelCharacterlResponse) {
+    public MessageTemplate buildGenericTemplateFromMarvelCharacterResponse(Messaging request, MarvelCharacterResponse marvelCharacterResponse) {
 
         List<GenericElement> elements;
 
-        List<CharacterResults> results = marvelCharacterlResponse.getData().getResults();
+        List<CharacterResults> results = marvelCharacterResponse.getData().getResults();
 
         elements = getGenericElementsForCharacters(results);
 
@@ -36,7 +36,7 @@ public class MarvelTemplateBuilder {
         return new GenericMessageTemplate(request.getSender().getId(), genericMessage);
     }
 
-    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponce marvelComicsResponse) {
+    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponse marvelComicsResponse) {
 
         List<GenericElement> elements;
         String characterId = request.getPostback().getPayload();
@@ -57,7 +57,7 @@ public class MarvelTemplateBuilder {
         return new GenericMessageTemplate(request.getSender().getId(), genericMessage);
     }
 
-    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponce marvelComicsResponse, String offset, String characterId) {
+    public MessageTemplate buildGenericTemplateFromMarvelComicsResponce(Messaging request, MarvelComicsResponse marvelComicsResponse, String offset, String characterId) {
 
         List<GenericElement> elements;
 
@@ -97,8 +97,6 @@ public class MarvelTemplateBuilder {
             String imageExtention = result.getThumbnail().getExtension();
             String imageUrl = imagePath + "." + imageExtention;
 
-            System.out.println(imageUrl);
-
             if (imageUrl.equals(imageNotAvailable)) {
                 imageUrl = marvelLogoUrl;
             }
@@ -116,7 +114,7 @@ public class MarvelTemplateBuilder {
             //if there is no link to wiki building generic template without buttons
             buttons = new ArrayList<>();
             if (!wiki.isEmpty()) {
-                buttons.add(new LinkButton("Read more on Wiki", wiki));
+                buttons.add(new LinkButton("Read more", wiki));
             }
             buttons.add(new PostbackButton("Comics", charachterId));
             buttons.add(new PostbackButton("Rate", characherName));

@@ -1,7 +1,7 @@
 package Bot.DTO.MarvelDTO;
 
 
-public class MarvelCharacterlResponse {
+public class MarvelCharacterResponse {
     private Long id;
     private String status;
     private String copyright;
@@ -10,7 +10,7 @@ public class MarvelCharacterlResponse {
     private Data data;
     private String etag;
 
-    public MarvelCharacterlResponse(Long id, String status, String copyright, String attributionText, String attributionHTML, Data data, String etag){
+    public MarvelCharacterResponse(Long id, String status, String copyright, String attributionText, String attributionHTML, Data data, String etag){
         this.id = id;
         this.status = status;
         this.copyright = copyright;
@@ -20,7 +20,7 @@ public class MarvelCharacterlResponse {
         this.etag = etag;
     }
 
-    public MarvelCharacterlResponse(){
+    public MarvelCharacterResponse(){
         super();
     }
 

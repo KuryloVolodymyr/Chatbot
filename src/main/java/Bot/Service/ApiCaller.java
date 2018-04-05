@@ -2,8 +2,8 @@ package Bot.Service;
 
 import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
 import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
-import Bot.DTO.MarvelDTO.MarvelCharacterlResponse;
-import Bot.DTO.MarvelDTO.MarvelComicsResponce;
+import Bot.DTO.MarvelDTO.MarvelCharacterResponse;
+import Bot.DTO.MarvelDTO.MarvelComicsResponse;
 import Bot.DTO.Template.MessageTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -66,39 +66,39 @@ public class ApiCaller {
         restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
     }
 
-    public MarvelCharacterlResponse callMarvelAPIForCharacter(String characterName) throws HttpClientErrorException {
+    public MarvelCharacterResponse callMarvelAPIForCharacter(String characterName) throws HttpClientErrorException {
 
         String limit = numberOfCharactersPerRequest;
-        MarvelCharacterlResponse marvelCharacterlResponse;
+        MarvelCharacterResponse marvelCharacterResponse;
         String ts = new Timestamp(System.currentTimeMillis()).toString();
 
         String hash = createHashForCallMarvelApi(ts);
 
-        marvelCharacterlResponse = restTemplate.getForObject(marvelCharactersByNameURL, MarvelCharacterlResponse.class,
+        marvelCharacterResponse = restTemplate.getForObject(marvelCharactersByNameURL, MarvelCharacterResponse.class,
                 characterName, limit, ts, marvelPublicKey, hash);
 
-        if (marvelCharacterlResponse.getData().getResults().isEmpty()) {
-            marvelCharacterlResponse = callMarvelAPIForChatacterNameStartsWith(characterName, limit);
+        if (marvelCharacterResponse.getData().getResults().isEmpty()) {
+            marvelCharacterResponse = callMarvelAPIForChatacterNameStartsWith(characterName, limit);
         }
-        return marvelCharacterlResponse;
+        return marvelCharacterResponse;
     }
 
-    public MarvelComicsResponce callMarvelAPIForComics(String characterId, Long limit) throws HttpClientErrorException {
+    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit) throws HttpClientErrorException {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
 
         String hash = createHashForCallMarvelApi(ts);
 
         return restTemplate.getForObject(marvelComics,
-                MarvelComicsResponce.class, characterId, limit, ts, marvelPublicKey, hash);
+                MarvelComicsResponse.class, characterId, limit, ts, marvelPublicKey, hash);
 
     }
 
-    public MarvelComicsResponce callMarvelAPIForComics(String characterId, Long limit, String offset) throws HttpClientErrorException {
+    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit, String offset) throws HttpClientErrorException {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
 
         String hash = createHashForCallMarvelApi(ts);
 
-        return restTemplate.getForObject(marvelComicsWithOffset, MarvelComicsResponce.class, characterId, limit, offset, ts, marvelPublicKey, hash);
+        return restTemplate.getForObject(marvelComicsWithOffset, MarvelComicsResponse.class, characterId, limit, offset, ts, marvelPublicKey, hash);
 
     }
 
@@ -110,13 +110,13 @@ public class ApiCaller {
         return restTemplate.postForObject(dialogFlowUrl, entity, DialogFlowResponse.class);
     }
 
-    private MarvelCharacterlResponse callMarvelAPIForChatacterNameStartsWith(String characterName, String limit) {
+    private MarvelCharacterResponse callMarvelAPIForChatacterNameStartsWith(String characterName, String limit) {
 
         String newTs = new Timestamp(System.currentTimeMillis()).toString();
         String newHash = createHashForCallMarvelApi(newTs);
 
         return restTemplate.getForObject(marvelCharactersStartsWith,
-                MarvelCharacterlResponse.class, characterName, limit, newTs, marvelPublicKey, newHash);
+                MarvelCharacterResponse.class, characterName, limit, newTs, marvelPublicKey, newHash);
     }
 
     private String createHashForCallMarvelApi(String ts) {

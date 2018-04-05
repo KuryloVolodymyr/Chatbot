@@ -60,14 +60,16 @@ public class MessageService {
 
     public void processRequest(Messaging request) {
         MessageTemplate template;
-
-        if (!messageTypeDetector.isText(request)) {
-            template = messageHandler.handleNonTextMessage(request);
-        } else {
-            template = messageHandler.handleMessageWithText(request);
+        try {
+            if (!messageTypeDetector.isText(request)) {
+                template = messageHandler.handleNonTextMessage(request);
+            } else {
+                template = messageHandler.handleMessageWithText(request);
+            }
+            apiCaller.callSendAPI(template);
+        } catch (HttpClientErrorException e) {
+            apiCaller.callSendAPI(new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage));
         }
-        apiCaller.callSendAPI(template);
-
     }
 
     public QuickReplyMessage getHeroesForQuickReply(String text) {
