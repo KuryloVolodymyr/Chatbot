@@ -37,37 +37,37 @@ public class MessageHandler {
     private MessageTypeDetector messageTypeDetector;
 
 
-    @Value("${responce.greeting}")
+    @Value("${response.greeting}")
     private String greeting;
 
-    @Value("${responce.herNotFound}")
+    @Value("${response.herNotFound}")
     private String heroNotFound;
 
-    @Value("${responce.noTemplateInitialized}")
+    @Value("${response.noTemplateInitialized}")
     private String noTemplateInitialized;
 
-    @Value("${responce.noComicsFound}")
+    @Value("${response.noComicsFound}")
     private String noComicsFound;
 
-    @Value("${responce.cantFindHeroName}")
+    @Value("${response.cantFindHeroName}")
     private String cantFindHeroName;
 
-    @Value("${responce.handleImage}")
+    @Value("${response.handleImage}")
     private String imageHandleMessage;
 
-    @Value("${responce.httpException}")
+    @Value("${response.httpException}")
     private String httpExceptionMessage;
 
-    @Value("${responce.ratingReply}")
+    @Value("${response.ratingReply}")
     private String ratingReply;
 
-    @Value("${responce.help}")
+    @Value("${response.help}")
     private String helpMessage;
 
-    @Value("${responce.topHeroes}")
+    @Value("${response.topHeroes}")
     private String topHeroes;
 
-    @Value("${responce.settingsChanged}")
+    @Value("${response.settingsChanged}")
     private String settingsChanged;
 
     public MessageTemplate handleNonTextMessage(Messaging request) {

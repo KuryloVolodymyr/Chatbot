@@ -51,10 +51,10 @@ public class MessageService {
     @Autowired
     private ApiCaller apiCaller;
 
-    @Value("${responce.httpException}")
+    @Value("${response.httpException}")
     private String httpExceptionMessage;
 
-    @Value("${responce.noTemplateInitialized}")
+    @Value("${response.noTemplateInitialized}")
     private String noTemplateInitialized;
 
 
