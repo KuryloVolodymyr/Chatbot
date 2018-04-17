@@ -5,7 +5,9 @@ import Bot.DTO.Message.QuickReplyMessage;
 import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.Template.*;
 import Bot.Domain.HeroesRatingEntity;
+import Bot.Domain.UserEntity;
 import Bot.Repository.HeroesRatingRepository;
+import Bot.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,9 @@ public class MessageService {
 
     @Autowired
     private HeroesRatingRepository heroesRatingRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private MessageTypeDetector messageTypeDetector;
@@ -55,6 +60,7 @@ public class MessageService {
 
     public void processRequest(Messaging request) {
         MessageTemplate template;
+        setRecepientId(request.getSender().getId());
         if (!messageTypeDetector.isText(request)) {
             template = messageHandler.handleNonTextMessage(request);
         } else {
@@ -99,15 +105,20 @@ public class MessageService {
         String heroName = request.getMessage().getQuickReply().getPayload();
         Long senderPSID = request.getSender().getId();
         Boolean rating = request.getMessage().getText().startsWith(like);
+        UserEntity user = userRepository.getBySenderPSID(senderPSID);
+        HeroesRatingEntity heroesRatingEntity;
 
         if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
-            heroesRatingRepository.save(new HeroesRatingEntity(heroName, senderPSID, rating));
+            heroesRatingEntity = new HeroesRatingEntity(heroName, senderPSID, rating);
+            heroesRatingEntity.setUser(user);
+            heroesRatingRepository.save(heroesRatingEntity);
         } else {
             HeroesRatingEntity oldRating = heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID);
             Long ratingId = oldRating.getId();
-            HeroesRatingEntity newRating = new HeroesRatingEntity(heroName, senderPSID, rating);
-            newRating.setId(ratingId);
-            heroesRatingRepository.save(newRating);
+            heroesRatingEntity = new HeroesRatingEntity(heroName, senderPSID, rating);
+            heroesRatingEntity.setId(ratingId);
+            heroesRatingEntity.setUser(user);
+            heroesRatingRepository.save(heroesRatingEntity);
         }
     }
 

@@ -140,7 +140,7 @@ public class MessageHandler {
         if (dialogFlowResponse.getResult().getMetadata().getIntentName() == null) {
             messageTemplate = new TextMessageTemplate(request.getSender().getId(), cantFindHeroName);
         } else {
-            messageTemplate = handleDialogflowResponce(dialogFlowResponse, request);
+            messageTemplate = handleDialogFlowResponse(dialogFlowResponse, request);
         }
 
 
@@ -222,8 +222,8 @@ public class MessageHandler {
         return new TextMessageTemplate(senderPSID, settingsChanged);
     }
 
-    private MessageTemplate handleDialogflowResponce(DialogFlowResponse dialogFlowResponse, Messaging request) {
-        //Checking if type of intent is one than needs special haldeling
+    private MessageTemplate handleDialogFlowResponse(DialogFlowResponse dialogFlowResponse, Messaging request) {
+        //Checking if type of intent is one than needs special handling
         // if not, handling it in getTemplateForCharacter method
         MessageTemplate messageTemplate;
         String intentType = dialogFlowResponse.getResult().getMetadata().getIntentName();
@@ -234,6 +234,19 @@ public class MessageHandler {
             case "help":
                 messageTemplate = new TextMessageTemplate(request.getSender().getId(), helpMessage);
                 break;
+            case "top":
+                messageTemplate = handleTopTemplate(request);
+                break;
+//todo
+//            case "comics":
+//                if (dialogFlowResponse.getResult().getActionIncomplete())
+//                    messageTemplate = new TextMessageTemplate(request.getSender().getId(), "Please type in name of your hero");
+//                else {
+//                    MarvelCharacterResponse marvelCharacterResponse = apiCaller.callMarvelAPIForCharacter(request.getMessage().getText());
+//                    messageTemplate = new TextMessageTemplate(request.getSender().getId(), "complete");
+//                }
+//                break;
+
             case "dc":
                 messageTemplate = new TextMessageTemplate(request.getSender().getId(), dialogFlowResponse.getResult().getFulfillment().getSpeech());
                 break;
@@ -265,12 +278,15 @@ public class MessageHandler {
         MessageTemplate template;
         if (!marvelCharacterResponse.getData().getResults().isEmpty()) {
             Long senderPSID = request.getSender().getId();
+            UserEntity user = userRepository.getBySenderPSID(senderPSID);
 
             //Saving Responce to database
             for (CharacterResults results : marvelCharacterResponse.getData().getResults()) {
                 String character = results.getName();
                 Long characterId = results.getId();
-                userRequestRepository.save(new UserRequestEntity(character, characterId, senderPSID));
+                UserRequestEntity userRequest = new UserRequestEntity(character, characterId);
+                userRequest.setUser(user);
+                userRequestRepository.save(userRequest);
             }
             template = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponse(request, marvelCharacterResponse);
 

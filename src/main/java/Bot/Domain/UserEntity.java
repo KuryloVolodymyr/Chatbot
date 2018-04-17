@@ -4,14 +4,13 @@ import Bot.DTO.UserProfile;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     @Column
     private Long senderPSID;
 
@@ -24,6 +23,14 @@ public class UserEntity {
     @Column
     private Long comicsGivenAtOnce;
 
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "user")
+    private List<UserRequestEntity> requests = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "user")
+    private List<HeroesRatingEntity> ratings = new ArrayList<>();
+
     public UserEntity(Long senderPSID, UserProfile userProfile){
         this.senderPSID = senderPSID;
         this.firstName = userProfile.getFirstName();
@@ -33,14 +40,6 @@ public class UserEntity {
 
     public UserEntity(){
         super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getSenderPSID() {
@@ -73,5 +72,13 @@ public class UserEntity {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public List<UserRequestEntity> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<UserRequestEntity> requests) {
+        this.requests = requests;
     }
 }

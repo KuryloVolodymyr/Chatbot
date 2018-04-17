@@ -11,7 +11,7 @@ import java.util.Set;
 @Repository
 public interface HeroesRatingRepository extends JpaRepository<HeroesRatingEntity, Long> {
 
-    public HeroesRatingEntity getByHeroNameAndSenderPSID(String heroName, Long senderPSID);
+    public HeroesRatingEntity getByHeroNameAndSenderPSID(String heroName, Long senderId);
 
     @Query(value = "select heroes_rating.hero_name from heroes_rating where rating = 1  group by (hero_name)" +
             " order by count(heroes_rating.rating) desc limit 10", nativeQuery = true)

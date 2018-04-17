@@ -16,14 +16,14 @@ public class UserRequestEntity {
     @Column
     private Long heroId;
 
-    @Column
-    private Long senderPSID;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "senderId", nullable = false)
+    private UserEntity user;
 
 
-    public UserRequestEntity( String heroName, Long heroId, Long senderPSID){
+    public UserRequestEntity( String heroName, Long heroId){
         this.heroId = heroId;
         this.heroName = heroName;
-        this.senderPSID = senderPSID;
     }
 
     public UserRequestEntity(){}
@@ -44,20 +44,20 @@ public class UserRequestEntity {
         this.heroId = heroId;
     }
 
-    public Long getSenderPSID() {
-        return senderPSID;
-    }
-
-    public void setSenderPSID(Long senderPSID) {
-        this.senderPSID = senderPSID;
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }
 

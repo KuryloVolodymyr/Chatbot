@@ -18,6 +18,10 @@ public class HeroesRatingEntity {
     @Column
     private Boolean rating;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
+
     public HeroesRatingEntity(String heroName, Long senderPSID, Boolean rating){
         this.heroName = heroName;
         this.senderPSID = senderPSID;
@@ -59,5 +63,13 @@ public class HeroesRatingEntity {
 
     public void setRating(Boolean rating) {
         this.rating = rating;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }
