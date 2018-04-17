@@ -57,19 +57,25 @@ public class MessageService {
     @Value("${response.noTemplateInitialized}")
     private String noTemplateInitialized;
 
+    private Long recepientId;
+
+    public Long getRecepientId() {
+        return recepientId;
+    }
+
+    public void setRecepientId(Long recepientId) {
+        this.recepientId = recepientId;
+    }
 
     public void processRequest(Messaging request) {
         MessageTemplate template;
-        try {
-            if (!messageTypeDetector.isText(request)) {
-                template = messageHandler.handleNonTextMessage(request);
-            } else {
-                template = messageHandler.handleMessageWithText(request);
-            }
-            apiCaller.callSendAPI(template);
-        } catch (HttpClientErrorException e) {
-            apiCaller.callSendAPI(new TextMessageTemplate(request.getSender().getId(), httpExceptionMessage));
+        if (!messageTypeDetector.isText(request)) {
+            template = messageHandler.handleNonTextMessage(request);
+        } else {
+            template = messageHandler.handleMessageWithText(request);
         }
+        apiCaller.callSendAPI(template);
+
     }
 
     public QuickReplyMessage getHeroesForQuickReply(String text) {
@@ -79,8 +85,6 @@ public class MessageService {
 
         List<QuickReply> quickReplies = new ArrayList<>();
         Set<String> topHeroes = heroesRatingRepository.getTopHeroesForQuickReply();
-        for (String hero : topHeroes) {
-        }
         topHeroes = chechTopHeroesSize(topHeroes, 0);
         for (String s : topHeroes) {
             quickReplies.add(new QuickReply("text", s, "hero"));
@@ -96,8 +100,8 @@ public class MessageService {
         Long likes = heroesRatingRepository.getLikesForHero(id);
         Long dislikes = heroesRatingRepository.getDisLikesForHero(id);
         List<QuickReply> quickReplies = new ArrayList<>();
-        quickReplies.add(new QuickReply("text", like+" "+likes, id));
-        quickReplies.add(new QuickReply("text", dislike+" "+ dislikes, id));
+        quickReplies.add(new QuickReply("text", like + " " + likes, id));
+        quickReplies.add(new QuickReply("text", dislike + " " + dislikes, id));
         return new QuickReplyMessage(ratingMessage, quickReplies);
     }
 

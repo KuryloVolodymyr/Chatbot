@@ -48,8 +48,6 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> conversation(@RequestBody RequestData data) {
 
-//        System.out.println(data);
-
         for (Entry entry : data.getEntry()) {
                 for (Messaging request : entry.getMessaging()) {
                 messageService.processRequest(request);
