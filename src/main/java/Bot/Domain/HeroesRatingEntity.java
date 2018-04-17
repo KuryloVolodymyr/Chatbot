@@ -1,12 +1,9 @@
 package Bot.Domain;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "heroesRating")
-@EntityListeners(AuditingEntityListener.class)
 public class HeroesRatingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,15 +18,10 @@ public class HeroesRatingEntity {
     @Column
     private Boolean rating;
 
-    public HeroesRatingEntity(String heroName, Long senderPSID, String ratingSymbol){
+    public HeroesRatingEntity(String heroName, Long senderPSID, Boolean rating){
         this.heroName = heroName;
         this.senderPSID = senderPSID;
-        if(ratingSymbol.equals("\uD83D\uDC4D")){
-            this.rating = true;
-        }
-        else {
-            this.rating = false;
-        }
+        this.rating = rating;
     }
 
     public HeroesRatingEntity(){

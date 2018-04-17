@@ -1,17 +1,14 @@
 package Bot.Controller;
 
-import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
-import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
+import Bot.DTO.RequestDTO.Entry;
 import Bot.DTO.RequestDTO.Messaging;
-import Bot.DTO.RequestDTO.RequestHandler;
+import Bot.DTO.RequestDTO.RequestData;
 import Bot.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 
 @RestController
@@ -38,21 +35,24 @@ public class MainController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") final String token,
-                                                @RequestParam("hub.challenge") final String challenge,
-                                                @RequestParam("hub.mode") final String mode) {
-        System.out.println("Challenge " + challenge);
-        return new ResponseEntity<>(challenge, HttpStatus.OK);
+    public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") String token,
+                                                @RequestParam("hub.challenge") String challenge,
+                                                @RequestParam("hub.mode") String mode) {
+        if (token.equals(verifyToken)) {
+            return new ResponseEntity<>(challenge, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> conversation(@RequestBody RequestHandler  data) {
+    public ResponseEntity<Void> conversation(@RequestBody RequestData data) {
 
-        System.out.println(data);
-//
-        Messaging messageContent = data.getEntry().get(0).getMessaging().get(0);
-
-        messageService.processRequest(messageContent);
+        for (Entry entry : data.getEntry()) {
+                for (Messaging request : entry.getMessaging()) {
+                messageService.processRequest(request);
+            }
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

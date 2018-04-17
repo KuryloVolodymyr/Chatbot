@@ -1,13 +1,10 @@
 package Bot.Domain;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "userRequest")
-@EntityListeners(AuditingEntityListener.class)
 public class UserRequestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,15 +19,11 @@ public class UserRequestEntity {
     @Column
     private Long senderPSID;
 
-    @Column
-    private Date date;
-
 
     public UserRequestEntity( String heroName, Long heroId, Long senderPSID){
         this.heroId = heroId;
         this.heroName = heroName;
         this.senderPSID = senderPSID;
-        this.date = new Date();
     }
 
     public UserRequestEntity(){}

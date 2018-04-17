@@ -2,15 +2,15 @@ package Bot.DTO.RequestDTO;
 
 import java.util.List;
 
-public class RequestHandler {
+public class RequestData {
     String object;
     List<Entry> entry;
 
-    public RequestHandler(String object, List<Entry> entry){
+    public RequestData(String object, List<Entry> entry){
         this.object = object;
         this.entry = entry;
     }
-    public RequestHandler(){
+    public RequestData(){
         super();
     }
 

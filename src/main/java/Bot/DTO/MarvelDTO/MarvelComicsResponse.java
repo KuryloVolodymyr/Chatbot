@@ -1,6 +1,6 @@
 package Bot.DTO.MarvelDTO;
 
-public class MarvelComicsResponce {
+public class MarvelComicsResponse {
     private Long code;
     private String status;
     private String copyright;
@@ -9,7 +9,7 @@ public class MarvelComicsResponce {
     private ComicsData data;
     private String  etag;
 
-    public MarvelComicsResponce(Long code, String status, String copyright, String attributionText, String attributionHTML, ComicsData data, String etag){
+    public MarvelComicsResponse(Long code, String status, String copyright, String attributionText, String attributionHTML, ComicsData data, String etag){
         this.code = code;
         this.status = status;
         this.copyright = copyright;
@@ -19,7 +19,7 @@ public class MarvelComicsResponce {
         this.etag = etag;
     }
 
-    public MarvelComicsResponce(){
+    public MarvelComicsResponse(){
         super();
     }
 
