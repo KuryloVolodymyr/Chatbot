@@ -5,6 +5,7 @@ import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
 import Bot.DTO.MarvelDTO.MarvelCharacterResponse;
 import Bot.DTO.MarvelDTO.MarvelComicsResponse;
 import Bot.DTO.Template.MessageTemplate;
+import Bot.DTO.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -39,6 +40,9 @@ public class ApiCaller {
     @Value("${url.messenger.sendAPIURL}")
     private String sendAPIURL;
 
+    @Value("${url.messenger.graphAPIURL}")
+    private String graphAPIURL;
+
     @Value("${url.dialogflow}")
     private String dialogFlowUrl;
 
@@ -58,7 +62,7 @@ public class ApiCaller {
     private String dialogFlowDeveloperToken;
 
 
-    public void callSendAPI(MessageTemplate message) throws HttpClientErrorException {
+    public void callSendAPI(MessageTemplate message) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> entity = new HttpEntity<>(message, headers);
@@ -66,7 +70,11 @@ public class ApiCaller {
         restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
     }
 
-    public MarvelCharacterResponse callMarvelAPIForCharacter(String characterName) throws HttpClientErrorException {
+    public UserProfile callGraphApi(Long recepientId){
+        return restTemplate.getForObject(graphAPIURL, UserProfile.class, recepientId, pageAccessToken);
+    }
+
+    public MarvelCharacterResponse callMarvelAPIForCharacter(String characterName) {
 
         String limit = numberOfCharactersPerRequest;
         MarvelCharacterResponse marvelCharacterResponse;
@@ -83,7 +91,7 @@ public class ApiCaller {
         return marvelCharacterResponse;
     }
 
-    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit) throws HttpClientErrorException {
+    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit) {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
 
         String hash = createHashForCallMarvelApi(ts);
@@ -93,7 +101,7 @@ public class ApiCaller {
 
     }
 
-    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit, String offset) throws HttpClientErrorException {
+    public MarvelComicsResponse callMarvelAPIForComics(String characterId, Long limit, String offset) {
         String ts = new Timestamp(System.currentTimeMillis()).toString();
 
         String hash = createHashForCallMarvelApi(ts);
@@ -102,7 +110,7 @@ public class ApiCaller {
 
     }
 
-    public DialogFlowResponse callDialogFlowApi(DialogFlowRequest dialogFlowRequest) throws HttpClientErrorException {
+    public DialogFlowResponse callDialogFlowApi(DialogFlowRequest dialogFlowRequest) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + dialogFlowClientToken);
         headers.setContentType(MediaType.APPLICATION_JSON);

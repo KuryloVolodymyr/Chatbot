@@ -1,28 +1,14 @@
 package Bot.Service;
 
-import Bot.DTO.DialogFlowDTO.DialogFlowRequest.DialogFlowRequest;
-import Bot.DTO.DialogFlowDTO.DialogFlowResponse.DialogFlowResponse;
 import Bot.DTO.Elements.*;
-import Bot.DTO.MarvelDTO.*;
 import Bot.DTO.Message.QuickReplyMessage;
-import Bot.DTO.Recipient;
 import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.Template.*;
 import Bot.Domain.HeroesRatingEntity;
-import Bot.Domain.UserRequestEntity;
-import Bot.Domain.UserSettingsEntity;
 import Bot.Repository.HeroesRatingRepository;
-import Bot.Repository.UserRequestRepository;
-import Bot.Repository.UserSettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,13 @@
 package Bot.Domain;
 
+import Bot.DTO.UserProfile;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userSettings")
-public class UserSettingsEntity {
+@Table(name = "user")
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -13,14 +16,22 @@ public class UserSettingsEntity {
     private Long senderPSID;
 
     @Column
+    private String firstName;
+
+    @Column
+    private String lastName;
+
+    @Column
     private Long comicsGivenAtOnce;
 
-    public UserSettingsEntity(Long senderPSID){
+    public UserEntity(Long senderPSID, UserProfile userProfile){
         this.senderPSID = senderPSID;
+        this.firstName = userProfile.getFirstName();
+        this.lastName = userProfile.getLastName();
         this.comicsGivenAtOnce = 5L;
     }
 
-    public UserSettingsEntity(){
+    public UserEntity(){
         super();
     }
 
@@ -46,5 +57,21 @@ public class UserSettingsEntity {
 
     public void setComicsGivenAtOnce(Long comicsGivenAtOnce) {
         this.comicsGivenAtOnce = comicsGivenAtOnce;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

@@ -9,10 +9,11 @@ import Bot.DTO.RequestDTO.Messaging;
 import Bot.DTO.Template.MessageTemplate;
 import Bot.DTO.Template.QuickReplyTemplate;
 import Bot.DTO.Template.TextMessageTemplate;
+import Bot.DTO.UserProfile;
 import Bot.Domain.UserRequestEntity;
-import Bot.Domain.UserSettingsEntity;
+import Bot.Domain.UserEntity;
 import Bot.Repository.UserRequestRepository;
-import Bot.Repository.UserSettingsRepository;
+import Bot.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -31,7 +32,7 @@ public class MessageHandler {
     private UserRequestRepository userRequestRepository;
 
     @Autowired
-    private UserSettingsRepository userSettingsRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private MessageTypeDetector messageTypeDetector;
@@ -119,10 +120,12 @@ public class MessageHandler {
 
     private MessageTemplate handleGreeting(Messaging request) {
         Long senderPSID = request.getSender().getId();
-        if (userSettingsRepository.getBySenderPSID(senderPSID) == null) {
-            userSettingsRepository.save(new UserSettingsEntity(senderPSID));
+        if (userRepository.getBySenderPSID(senderPSID) == null) {
+            UserProfile userProfile = apiCaller.callGraphApi(senderPSID);
+            userRepository.save(new UserEntity(senderPSID, userProfile));
         }
-        return new QuickReplyTemplate(senderPSID, messageService.getHeroesForQuickReply(greeting));
+        String greetingResponce = "Hi "+userRepository.getBySenderPSID(senderPSID).getFirstName()+greeting;
+        return new QuickReplyTemplate(senderPSID, messageService.getHeroesForQuickReply(greetingResponce));
     }
 
     private MessageTemplate handleTextMessage(Messaging request) {
@@ -157,7 +160,7 @@ public class MessageHandler {
     private MessageTemplate handleComicsTemplate(Messaging request) {
 
         MessageTemplate template;
-        Long limit = userSettingsRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
+        Long limit = userRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
         MarvelComicsResponse marvelComicsResponse = apiCaller.callMarvelAPIForComics(request.getPostback().getPayload(), limit);
         if (!marvelComicsResponse.getData().getResults().isEmpty()) {
             template = marvelTemplateBuilder.buildGenericTemplateFromMarvelComicsResponce(request, marvelComicsResponse);
@@ -174,7 +177,7 @@ public class MessageHandler {
         String characterId = request.getPostback().getPayload().split("/")[0];
         Long offsetLong = Long.parseLong(request.getPostback().getPayload().split("/")[1]);
 
-        Long limit = userSettingsRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
+        Long limit = userRepository.getBySenderPSID(request.getSender().getId()).getComicsGivenAtOnce();
         offsetLong += limit;
         String offset = offsetLong.toString();
 
@@ -213,9 +216,9 @@ public class MessageHandler {
     private MessageTemplate handleChangeComicsAtOnce(Messaging request) {
         Long senderPSID = request.getSender().getId();
         Long newComicsNumber = Long.parseLong(request.getPostback().getTitle());
-        UserSettingsEntity user = userSettingsRepository.getBySenderPSID(senderPSID);
+        UserEntity user = userRepository.getBySenderPSID(senderPSID);
         user.setComicsGivenAtOnce(newComicsNumber);
-        userSettingsRepository.save(user);
+        userRepository.save(user);
         return new TextMessageTemplate(senderPSID, settingsChanged);
     }
 
