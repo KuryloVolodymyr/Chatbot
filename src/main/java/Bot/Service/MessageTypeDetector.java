@@ -18,7 +18,7 @@ public class MessageTypeDetector {
             if (request.getPostback().getPayload() == null) {
                 return false;
             } else {
-                return request.getPostback().getPayload().equals("FACEBOOK_WELCOME");
+                return request.getPostback().getPayload().equals("GET_STARTED");
             }
         }
     }

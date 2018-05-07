@@ -58,9 +58,6 @@ public class ApiCaller {
     @Value("${dialogFlow.clientAccessToken}")
     private String dialogFlowClientToken;
 
-    @Value("${dialogFlow.developerAccessToken}")
-    private String dialogFlowDeveloperToken;
-
 
     public void callSendAPI(MessageTemplate message) {
         HttpHeaders headers = new HttpHeaders();
@@ -70,7 +67,7 @@ public class ApiCaller {
         restTemplate.postForObject(sendAPIURL, entity, String.class, pageAccessToken);
     }
 
-    public UserProfile callGraphApi(Long recepientId){
+    public UserProfile callGraphApi(Long recepientId) {
         return restTemplate.getForObject(graphAPIURL, UserProfile.class, recepientId, pageAccessToken);
     }
 

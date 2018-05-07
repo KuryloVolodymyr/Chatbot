@@ -23,13 +23,13 @@ public class UserEntity {
     @Column
     private Long comicsGivenAtOnce;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "user")
-    private List<UserRequestEntity> requests = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "user")
-    private List<HeroesRatingEntity> ratings = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL,
+//            mappedBy = "user")
+//    private List<UserRequestEntity> requests = new ArrayList<>();
+//
+//    @OneToMany(cascade = CascadeType.ALL,
+//            mappedBy = "user")
+//    private List<HeroesRatingEntity> ratings = new ArrayList<>();
 
     public UserEntity(Long senderPSID, UserProfile userProfile){
         this.senderPSID = senderPSID;
@@ -74,11 +74,11 @@ public class UserEntity {
         this.firstName = firstName;
     }
 
-    public List<UserRequestEntity> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(List<UserRequestEntity> requests) {
-        this.requests = requests;
-    }
+//    public List<UserRequestEntity> getRequests() {
+//        return requests;
+//    }
+//
+//    public void setRequests(List<UserRequestEntity> requests) {
+//        this.requests = requests;
+//    }
 }

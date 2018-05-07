@@ -16,9 +16,9 @@ public class UserRequestEntity {
     @Column
     private Long heroId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "senderId", nullable = false)
-    private UserEntity user;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "senderId", nullable = false)
+//    private UserEntity user;
 
 
     public UserRequestEntity( String heroName, Long heroId){
@@ -52,12 +52,12 @@ public class UserRequestEntity {
         this.id = id;
     }
 
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+//    public UserEntity getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(UserEntity user) {
+//        this.user = user;
+//    }
 }
 

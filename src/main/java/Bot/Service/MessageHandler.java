@@ -78,6 +78,7 @@ public class MessageHandler {
         if (messageTypeDetector.isImage(request)) {
             template = handleImageMessage(request);
         } else if (messageTypeDetector.isStart(request)) {
+            System.out.println("handling start button");
             template = handleGreeting(request);
         } else if (messageTypeDetector.isHelp(request)) {
             template = handleHelpTemplate(request);
@@ -285,7 +286,7 @@ public class MessageHandler {
                 String character = results.getName();
                 Long characterId = results.getId();
                 UserRequestEntity userRequest = new UserRequestEntity(character, characterId);
-                userRequest.setUser(user);
+//                userRequest.setUser(user);
                 userRequestRepository.save(userRequest);
             }
             template = marvelTemplateBuilder.buildGenericTemplateFromMarvelCharacterResponse(request, marvelCharacterResponse);

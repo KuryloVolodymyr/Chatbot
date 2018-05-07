@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @RestController
-@RequestMapping("/callback")
+@RequestMapping("/message")
 public class MainController {
     private final String appSecret;
     private final String verifyToken;
@@ -38,6 +38,7 @@ public class MainController {
     public ResponseEntity<String> verifyWebhook(@RequestParam("hub.verify_token") String token,
                                                 @RequestParam("hub.challenge") String challenge,
                                                 @RequestParam("hub.mode") String mode) {
+        System.out.println("Challenge");
         if (token.equals(verifyToken)) {
             return new ResponseEntity<>(challenge, HttpStatus.OK);
         } else {
@@ -48,8 +49,9 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> conversation(@RequestBody RequestData data) {
 
+//        System.out.println(data);
         for (Entry entry : data.getEntry()) {
-                for (Messaging request : entry.getMessaging()) {
+            for (Messaging request : entry.getMessaging()) {
                 messageService.processRequest(request);
             }
         }

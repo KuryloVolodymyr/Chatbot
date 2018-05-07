@@ -110,14 +110,14 @@ public class MessageService {
 
         if (heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID) == null) {
             heroesRatingEntity = new HeroesRatingEntity(heroName, senderPSID, rating);
-            heroesRatingEntity.setUser(user);
+//            heroesRatingEntity.setUser(user);
             heroesRatingRepository.save(heroesRatingEntity);
         } else {
             HeroesRatingEntity oldRating = heroesRatingRepository.getByHeroNameAndSenderPSID(heroName, senderPSID);
             Long ratingId = oldRating.getId();
             heroesRatingEntity = new HeroesRatingEntity(heroName, senderPSID, rating);
             heroesRatingEntity.setId(ratingId);
-            heroesRatingEntity.setUser(user);
+//            heroesRatingEntity.setUser(user);
             heroesRatingRepository.save(heroesRatingEntity);
         }
     }

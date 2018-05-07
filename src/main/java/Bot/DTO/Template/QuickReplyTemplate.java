@@ -2,13 +2,17 @@ package Bot.DTO.Template;
 
 import Bot.DTO.Message.QuickReplyMessage;
 import Bot.DTO.Recipient;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class QuickReplyTemplate implements MessageTemplate {
     private Recipient recipient;
+    @JsonProperty("messaging_type")
+    private String messagingType;
     private QuickReplyMessage message;
 
     public QuickReplyTemplate(Recipient recipient, QuickReplyMessage quickReplyMessage){
         this.recipient = recipient;
+        this.messagingType = "RESPONSE";
         this.message = quickReplyMessage;
     }
 
