@@ -1,6 +1,0 @@
-# IDEA configs
-.idea/
-*.iml
-
-# artifacts
-target/
